@@ -36,9 +36,9 @@ public class Point {
                 '}';
     }
 
-    public static Double distanceOf(Point a, Point b) {
-        return Math.sqrt((a.getX() - b.getX()) * (a.getX() - b.getX())
-                + (a.getY() - b.getY()) * (a.getY() - b.getY()));
+    // Method to calculate distance between two points
+    public static double distanceOf(Point p1, Point p2) {
+        return Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2) + Math.pow(p2.getY() - p1.getY(), 2));
     }
 
     // Optionally, you could override equals and hashCode if needed for comparisons in collections
