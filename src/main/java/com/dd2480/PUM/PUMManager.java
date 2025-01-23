@@ -4,4 +4,5 @@ import java.util.ArrayList;
 
 public interface PUMManager {
     PUM getPUM();
+    void computePUM();
 }
