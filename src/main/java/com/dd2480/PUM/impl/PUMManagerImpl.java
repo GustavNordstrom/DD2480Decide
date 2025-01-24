@@ -23,7 +23,8 @@ public class PUMManagerImpl implements PUMManager {
         this.lcm = lcm;
     }
 
-    public void ComputePUM() {
+    @Override
+    public void computePUM() {
         for (int i = 0; i < pum.getRowNumber(); ++i) {
             for (int j = 0; j < pum.getColNumber(); ++j) {
                 Connector c = lcm.getMatrix().get(i).get(j);
