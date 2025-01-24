@@ -15,13 +15,13 @@ public class PUM {
         preliminaryUnlockingMatrix = new ArrayList<ArrayList<Boolean>>();
         for (int i = 0; i < rowNumber; ++i) {
             ArrayList<Boolean> l = new ArrayList<>();
-            for (int j = 0; j < colNumber; ++i) {
+            for (int j = 0; j < colNumber; ++j) {
                 l.add(false);
             }
             preliminaryUnlockingMatrix.add(l);
         }
     }
-    ArrayList<ArrayList<Boolean>> getMatrix() {
+    public ArrayList<ArrayList<Boolean>> getMatrix() {
         return preliminaryUnlockingMatrix;
     }
 
