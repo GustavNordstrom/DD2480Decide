@@ -71,6 +71,14 @@ public class Parameters {
         return QUADS;
     }
 
+    public double getDIST() {
+        return DIST;
+    }
+
+    public int getNPTS() {
+        return N_PTS;
+    }
+
     // Private constructor, only accessible via the builder
     private Parameters(Builder builder) {
         this.LENGTH1 = builder.LENGTH1;
