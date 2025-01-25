@@ -24,8 +24,8 @@ public class Parameters {
 
     // Constructor
     public Parameters(double LENGTH1, double RADIUS1, double EPSILON, double AREA1, int Q_PTS, int QUADS,
-                      double DIST, int N_PTS, int K_PTS, int A_PTS, int B_PTS, int C_PTS,
-                      int D_PTS, int E_PTS, int F_PTS, double LENGTH2, double RADIUS2, double AREA2) {
+            double DIST, int N_PTS, int K_PTS, int A_PTS, int B_PTS, int C_PTS,
+            int D_PTS, int E_PTS, int F_PTS, double LENGTH2, double RADIUS2, double AREA2) {
         this.LENGTH1 = LENGTH1;
         this.RADIUS1 = RADIUS1;
         this.EPSILON = EPSILON;
@@ -63,6 +63,14 @@ public class Parameters {
         return AREA1;
     }
 
+    public int getQPTS() {
+        return Q_PTS;
+    }
+
+    public int getQUADS() {
+        return QUADS;
+    }
+
     // Private constructor, only accessible via the builder
     private Parameters(Builder builder) {
         this.LENGTH1 = builder.LENGTH1;
@@ -86,24 +94,24 @@ public class Parameters {
     }
 
     public static class Builder {
-        private double LENGTH1 = 0.0;  // Default value
-        private double RADIUS1 = 0.0;  // Default value
-        private double EPSILON = 0.0;  // Default value
-        private double AREA1 = 0.0;    // Default value
-        private int Q_PTS = 0;         // Default value
-        private int QUADS = 0;         // Default value
-        private double DIST = 0.0;     // Default value
-        private int N_PTS = 0;         // Default value
-        private int K_PTS = 0;         // Default value
-        private int A_PTS = 0;         // Default value
-        private int B_PTS = 0;         // Default value
-        private int C_PTS = 0;         // Default value
-        private int D_PTS = 0;         // Default value
-        private int E_PTS = 0;         // Default value
-        private int F_PTS = 0;         // Default value
-        private double LENGTH2 = 0.0;  // Default value
-        private double RADIUS2 = 0.0;  // Default value
-        private double AREA2 = 0.0;    // Default value
+        private double LENGTH1 = 0.0; // Default value
+        private double RADIUS1 = 0.0; // Default value
+        private double EPSILON = 0.0; // Default value
+        private double AREA1 = 0.0; // Default value
+        private int Q_PTS = 0; // Default value
+        private int QUADS = 0; // Default value
+        private double DIST = 0.0; // Default value
+        private int N_PTS = 0; // Default value
+        private int K_PTS = 0; // Default value
+        private int A_PTS = 0; // Default value
+        private int B_PTS = 0; // Default value
+        private int C_PTS = 0; // Default value
+        private int D_PTS = 0; // Default value
+        private int E_PTS = 0; // Default value
+        private int F_PTS = 0; // Default value
+        private double LENGTH2 = 0.0; // Default value
+        private double RADIUS2 = 0.0; // Default value
+        private double AREA2 = 0.0; // Default value
 
         // Method to set LENGTH1 and return the builder for method chaining
         public Builder setLENGTH1(double LENGTH1) {
@@ -126,7 +134,7 @@ public class Parameters {
         // ... (other setter methods for remaining fields)
 
         public Parameters build() {
-            return new Parameters(this);  // Return the fully constructed Parameters object
+            return new Parameters(this); // Return the fully constructed Parameters object
         }
         // Continue with other getters...
     }
