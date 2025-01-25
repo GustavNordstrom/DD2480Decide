@@ -10,5 +10,5 @@ public interface ConditionManager {
 
     void evaluateAll(ConditionContext conditionContext);
 
-    void addCondition(Condition condition);
+
 }
