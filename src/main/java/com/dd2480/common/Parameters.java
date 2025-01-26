@@ -83,6 +83,14 @@ public class Parameters {
         return K_PTS;
     }
 
+    public int getAPTS() {
+        return A_PTS;
+    }
+
+    public int getBPTS() {
+        return B_PTS;
+    }
+
     // Private constructor, only accessible via the builder
     private Parameters(Builder builder) {
         this.LENGTH1 = builder.LENGTH1;
