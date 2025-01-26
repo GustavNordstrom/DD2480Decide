@@ -36,4 +36,11 @@ public class PUM {
     public void setVal(int i, int j, Boolean val) {
         preliminaryUnlockingMatrix.get(i).set(j, val);
     }
+    public void setAllTrue() {
+        for (ArrayList<Boolean> unlockingMatrix : preliminaryUnlockingMatrix) {
+            for (int j = 0; j < preliminaryUnlockingMatrix.get(0).size(); ++j) {
+                unlockingMatrix.set(j, Boolean.TRUE);
+            }
+        }
+    }
 }
