@@ -18,6 +18,7 @@ public class Parameters {
     private final int D_PTS;
     private final int E_PTS;
     private final int F_PTS;
+    private final int G_PTS;
     private final double LENGTH2;
     private final double RADIUS2;
     private final double AREA2;
@@ -25,7 +26,7 @@ public class Parameters {
     // Constructor
     public Parameters(double LENGTH1, double RADIUS1, double EPSILON, double AREA1, int Q_PTS, int QUADS,
             double DIST, int N_PTS, int K_PTS, int A_PTS, int B_PTS, int C_PTS,
-            int D_PTS, int E_PTS, int F_PTS, double LENGTH2, double RADIUS2, double AREA2) {
+            int D_PTS, int E_PTS, int F_PTS, int G_PTS, double LENGTH2, double RADIUS2, double AREA2) {
         this.LENGTH1 = LENGTH1;
         this.RADIUS1 = RADIUS1;
         this.EPSILON = EPSILON;
@@ -41,6 +42,7 @@ public class Parameters {
         this.D_PTS = D_PTS;
         this.E_PTS = E_PTS;
         this.F_PTS = F_PTS;
+        this.G_PTS = G_PTS;
         this.LENGTH2 = LENGTH2;
         this.RADIUS2 = RADIUS2;
         this.AREA2 = AREA2;
@@ -107,6 +109,10 @@ public class Parameters {
         return F_PTS;
     }
 
+    public int getGPTS() {
+        return G_PTS;
+    }
+
     // Private constructor, only accessible via the builder
     private Parameters(Builder builder) {
         this.LENGTH1 = builder.LENGTH1;
@@ -124,6 +130,7 @@ public class Parameters {
         this.D_PTS = builder.D_PTS;
         this.E_PTS = builder.E_PTS;
         this.F_PTS = builder.F_PTS;
+        this.G_PTS = builder.G_PTS;
         this.LENGTH2 = builder.LENGTH2;
         this.RADIUS2 = builder.RADIUS2;
         this.AREA2 = builder.AREA2;
@@ -145,6 +152,7 @@ public class Parameters {
         private int D_PTS = 0; // Default value
         private int E_PTS = 0; // Default value
         private int F_PTS = 0; // Default value
+        private int G_PTS = 0; // Default value
         private double LENGTH2 = 0.0; // Default value
         private double RADIUS2 = 0.0; // Default value
         private double AREA2 = 0.0; // Default value
@@ -194,6 +202,7 @@ public class Parameters {
                 ", D_PTS=" + D_PTS +
                 ", E_PTS=" + E_PTS +
                 ", F_PTS=" + F_PTS +
+                ", G_PTS=" + G_PTS +
                 ", LENGTH2=" + LENGTH2 +
                 ", RADIUS2=" + RADIUS2 +
                 ", AREA2=" + AREA2 +
