@@ -39,14 +39,8 @@ public class ConditionThirteen implements Condition{
             Point p2 = pointCollection.getPoint(i + aPts + 1);
             Point p3 = pointCollection.getPoint(i + aPts + bPts + 2);
 
-            System.out.println(p1);
-            System.out.println(p2);
-            System.out.println(p3);
-
             // Calculate the circumcircle radius
             double circumRadius = calculateCircumcircleRadius(p1, p2, p3);
-
-            System.out.println(circumRadius);
 
             // Points cannot be contained within a circle of RADIUS1
             if (circumRadius > radius1) {
@@ -62,9 +56,6 @@ public class ConditionThirteen implements Condition{
                 return true;
             }
         }
-
-        System.out.println(cond1);
-        System.out.println(cond2);
 
         return false;
     }
