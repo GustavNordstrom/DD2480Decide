@@ -113,6 +113,10 @@ public class Parameters {
         return G_PTS;
     }
 
+    public double getLENGTH2() {
+        return LENGTH2;
+    }
+
     // Private constructor, only accessible via the builder
     private Parameters(Builder builder) {
         this.LENGTH1 = builder.LENGTH1;
