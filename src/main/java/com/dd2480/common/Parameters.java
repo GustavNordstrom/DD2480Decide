@@ -116,6 +116,10 @@ public class Parameters {
     public double getLENGTH2() {
         return LENGTH2;
     }
+    
+    public double getAREA2() {
+        return AREA2;
+    }
 
     // Private constructor, only accessible via the builder
     private Parameters(Builder builder) {
