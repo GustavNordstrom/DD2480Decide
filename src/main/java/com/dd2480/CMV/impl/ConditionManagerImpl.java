@@ -1,5 +1,6 @@
 package com.dd2480.CMV.impl;
 
+import com.dd2480.CMV.CMV;
 import com.dd2480.CMV.Condition;
 import com.dd2480.CMV.ConditionContext;
 import com.dd2480.CMV.ConditionManager;
@@ -19,10 +20,11 @@ public class ConditionManagerImpl implements ConditionManager {
         this.conditions = conditions;
         int numberConditions = conditions.size();
         this.conditionMetVector = new ArrayList<>(numberConditions);
-        for (int i = 0; i < numberConditions; ++ i) {
+        for (int i = 0; i < numberConditions; ++i) {
             this.conditionMetVector.add(false);
         }
     }
+
     // Getters for the conditions and conditionMetVector (if needed)
     public List<Condition> getConditions() {
         return conditions;
@@ -31,8 +33,6 @@ public class ConditionManagerImpl implements ConditionManager {
     public List<Boolean> getConditionMetVector() {
         return conditionMetVector;
     }
-
-
 
     public void evaluateAll(ConditionContext conditionContext) {
         for (int i = 0; i < conditions.size(); ++i) {
@@ -46,9 +46,17 @@ public class ConditionManagerImpl implements ConditionManager {
         conditions.add(condition);
     }
 
+    /**
+     * Returns a CMV object representing the evaluation results.
+     */
+    public CMV getCMV() {
+        return new CMV(conditionMetVector);
+    }
+
     private void retrieveAllConditions() {
-        // Use Reflections to scan for classes implementing Condition in the 'impl' package
-        Reflections reflections = new Reflections("com.dd2480.CMV.impl");  // Replace with your package
+        // Use Reflections to scan for classes implementing Condition in the 'impl'
+        // package
+        Reflections reflections = new Reflections("com.dd2480.CMV.impl"); // Replace with your package
         Set<Class<? extends Condition>> conditionClasses = reflections.getSubTypesOf(Condition.class);
 
         // Iterate over each class and instantiate it using reflection
