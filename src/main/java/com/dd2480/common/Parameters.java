@@ -57,6 +57,10 @@ public class Parameters {
         return RADIUS1;
     }
 
+    public double getRADIUS2() {
+        return RADIUS2;
+    }
+
     public double getEPSILON() {
         return EPSILON;
     }
