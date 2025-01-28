@@ -74,9 +74,11 @@ public class App {
             CMV cmv = evaluateCMV(conditionContext);
 
             PUMManager pumManager = new PUMManagerImpl(cmv, lcm);
+            pumManager.computePUM();
             PUM pum = pumManager.getPUM();
 
             FUVManager fuvManager = new FUVManagerImpl(pum, puv);
+            fuvManager.computeFUV();
             FUV fuv = fuvManager.getFUV();
 
             if (launch(fuv)) {
