@@ -3,11 +3,14 @@ package com.dd2480.common;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(using = PointCollectionDeserializer.class)
 public class PointCollection {
     private List<Point> points;
 
     public PointCollection() {
-        points = new ArrayList<>(100);  // Create a list to hold 100 points
+        points = new ArrayList<>(100); // Create a list to hold 100 points
     }
 
     public Point getPoint(int index) {

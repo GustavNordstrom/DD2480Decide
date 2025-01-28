@@ -32,4 +32,17 @@ public enum Connector {
         }
         throw new IllegalArgumentException("Unexpected value: " + value);
     }
+
+    public static Connector fromString(String value) {
+        switch (value.toUpperCase()) {
+            case "ANDD":
+                return ANDD;
+            case "ORR":
+                return ORR;
+            case "NOTUSED":
+                return NOTUSED;
+            default:
+                throw new IllegalArgumentException("Invalid Connector value: " + value);
+        }
+    }
 }
