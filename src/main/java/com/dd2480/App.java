@@ -50,13 +50,24 @@ import com.dd2480.common.Parameters;
  *
  */
 public class App {
+    /*
+     * Usage lin/mac: mvn exec:java -Dexec.args="src/test/resources/test_input1.json"
+     * usage windows: mvn exec:java -D"exec.args"="src\test\resources\test_input1.json"
+     * 
+     */
     public static void main(String[] args) {
-        decide();
+        if (args.length < 1) {
+            System.err.println("Usage linux/mac: mvn exec:java -Dexec.args=\"path/to/input.json\", usage windows: mvn exec:java -D\"exec.args\"=\"path\\to\\input.json\""); 
+            return;
+        }
+
+        String jsonFilePath = args[0]; // Get JSON file from command-line arguments
+        decide(jsonFilePath);
     }
 
-    public static void decide() {
+    public static void decide(String jsonFilePath) {
         // Load JSON input from a file
-        InputHandler inputHandler = new InputHandlerImpl("src/main/java/com/dd2480/input1.json");
+        InputHandler inputHandler = new InputHandlerImpl(jsonFilePath);
 
         try {
             inputHandler.processInput();
