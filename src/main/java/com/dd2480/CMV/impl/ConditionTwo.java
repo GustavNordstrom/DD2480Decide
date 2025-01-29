@@ -2,6 +2,7 @@ package com.dd2480.CMV.impl;
 
 import com.dd2480.CMV.Condition;
 import com.dd2480.CMV.ConditionContext;
+import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
@@ -36,7 +37,7 @@ public class ConditionTwo implements Condition {
             }
 
             // Calculate angle
-            double angle = calculateAngle(p1, p2, p3);
+            double angle = CalculationUtils.calculateAngle(p1, p2, p3);
 
             // Check if the angle meets the conditions
             if (angle < Math.PI - epsilon || angle > Math.PI + epsilon) {
@@ -45,34 +46,5 @@ public class ConditionTwo implements Condition {
         }
 
         return false; // All points do not meet the conditions
-    }
-
-    // Calculate the angle with p2 as the vertex
-    private double calculateAngle(Point p1, Point p2, Point p3) {
-        // Vector v1 and v2
-        double v1x = p1.getX() - p2.getX();
-        double v1y = p1.getY() - p2.getY();
-        double v2x = p3.getX() - p2.getX();
-        double v2y = p3.getY() - p2.getY();
-
-        // Calculate the dot product and magnitude of vectors
-        double dotProduct = (v1x * v2x) + (v1y * v2y);
-        double magnitudeV1 = Math.sqrt(v1x * v1x + v1y * v1y);
-        double magnitudeV2 = Math.sqrt(v2x * v2x + v2y * v2y);
-
-        // Invalid if the modulus is 0
-        if (magnitudeV1 == 0 || magnitudeV2 == 0) {
-            return Double.NaN;
-        }
-
-        // Calculates the cosine of the angle
-        double cosAngle = dotProduct / (magnitudeV1 * magnitudeV2);
-
-        // Ensures that the cosine is in the range [-1, 1]
-        cosAngle = Math.max(-1.0, Math.min(1.0, cosAngle));
-
-        // System.out.println(cosAngle);
-
-        return Math.acos(cosAngle);
     }
 }
