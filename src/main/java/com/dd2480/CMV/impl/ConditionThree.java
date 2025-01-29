@@ -33,7 +33,7 @@ public class ConditionThree implements Condition {
             double area = CalculationUtils.calculateTriangleArea(p1, p2, p3);
 
             // Meet the condition if area > AREA1
-            if (area > area1) {
+            if (CalculationUtils.doubleCompare(area, area1) == CalculationUtils.CompType.GT) {
                 return true;
             }
         }
