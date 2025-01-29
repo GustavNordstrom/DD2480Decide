@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 import com.dd2480.CMV.ConditionContext;
-import com.dd2480.CMV.impl.ConditionZero;
 import com.dd2480.common.Parameters;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
@@ -64,6 +63,24 @@ public class ConditionZeroTest {
         boolean result = conditionZero.evaluate(conditionContext);
 
         // Assert that the condition is not met (since the distance is <= LENGTH1)
+        assertFalse(result);
+    }
+
+    @Test
+    public void testEvaluate_insufficientPoints() {
+        Parameters params = mock(Parameters.class);
+        PointCollection pointCollection = new PointCollection();
+
+        // Add only one point
+        pointCollection.addPoint(new Point(0.0, 0.0));
+        when(conditionContext.getParameters()).thenReturn(params);
+        when(conditionContext.getPointCollection()).thenReturn(pointCollection);
+        when(params.getLENGTH1()).thenReturn(10.0);
+
+        // Implement test
+        boolean result = conditionZero.evaluate(conditionContext);
+
+        // Do NOT meet the condition
         assertFalse(result);
     }
 }

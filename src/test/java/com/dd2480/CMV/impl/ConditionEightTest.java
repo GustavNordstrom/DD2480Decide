@@ -69,4 +69,28 @@ public class ConditionEightTest {
         boolean result = conditionEight.evaluate(conditionContext);
         assertFalse(result);
     }
+
+    @Test
+    public void testEvaluate_insufficientPoints() {
+        Parameters params = mock(Parameters.class);
+        PointCollection pointCollection = new PointCollection();
+
+        // Add less than 3 points
+        pointCollection.addPoint(new Point(0.0, 0.0));
+        pointCollection.addPoint(new Point(1.0, 1.0));
+        pointCollection.addPoint(new Point(1.5, 1.5));
+        when(conditionContext.getParameters()).thenReturn(params);
+        when(conditionContext.getPointCollection()).thenReturn(pointCollection);
+
+        when(params.getAPTS()).thenReturn(1);
+        when(params.getBPTS()).thenReturn(1);
+        when(params.getRADIUS1()).thenReturn(5.0);
+
+        // Evaluate the condition
+        boolean result = conditionEight.evaluate(conditionContext);
+
+        // Do NOT meet the condition
+        assertFalse(result);
+    }
+
 }
