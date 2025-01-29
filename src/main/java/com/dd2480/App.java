@@ -91,10 +91,9 @@ public class App {
                 .print(pum)
                 .print(fuv);
 
-
     }
 
-    private static CMV evaluateCMV(ConditionContext conditionContext) {
+    public static CMV evaluateCMV(ConditionContext conditionContext) {
         List<Condition> conditions = new ArrayList<>();
         conditions.add(new ConditionZero());
         conditions.add(new ConditionOne());
@@ -120,8 +119,9 @@ public class App {
     }
 
     public static boolean launch(FUV fuv) {
+        // OutputHandler outputHandler = new OutputHandlerImpl();
+        // outputHandler.print(fuv);
         return fuv.getVector().stream().allMatch(Boolean::booleanValue);
     }
 
 }
-
