@@ -35,6 +35,11 @@ import com.dd2480.PUM.impl.PUMManagerImpl;
 import com.dd2480.common.LCM;
 import com.dd2480.common.PUV;
 import com.dd2480.common.PointCollection;
+import com.dd2480.inputoutput.InputData;
+import com.dd2480.inputoutput.InputHandler;
+import com.dd2480.inputoutput.OutputHandler;
+import com.dd2480.inputoutput.impl.InputHandlerImpl;
+import com.dd2480.inputoutput.impl.OutputHandlerImpl;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,64 +56,41 @@ public class App {
 
     public static void decide() {
         // Load JSON input from a file
-        ObjectMapper mapper = new ObjectMapper();
+        InputHandler inputHandler = new InputHandlerImpl("src/main/java/com/dd2480/input1.json");
+
         try {
-            InputData inputData = mapper.readValue(
-                    new File("src/main/java/com/dd2480/input1.json"),
-                    InputData.class);
-            // System.out.println("NUMPOINTS: " + inputData.NUMPOINTS);
-            // System.out
-            // .println("First Point: " + inputData.POINTS.getPoint(0).getX() + ", "
-            // + inputData.POINTS.getPoint(0).getY());
-            // System.out.println("LENGTH1: " + inputData.PARAMETERS.getLENGTH1());
-            // System.out.println("EPSILON: " + inputData.PARAMETERS.getEPSILON());
-            // System.out.println("N_PTS: " + inputData.PARAMETERS.getNPTS());
-            // System.out.println("LCM[0][1]: " + inputData.LCM.getMatrix().get(0).get(1));
-            // System.out.println("PUV: " + inputData.PUV.getVector());
-            Parameters parameters = inputData.PARAMETERS;
-            PointCollection pointCollection = inputData.POINTS;
-            LCM lcm = inputData.LCM;
-            PUV puv = inputData.PUV;
+            inputHandler.processInput();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        InputData inputData = inputHandler.getInputData();
+        Parameters parameters = inputData.PARAMETERS;
+        PointCollection pointCollection = inputData.POINTS;
+        LCM lcm = inputData.LCM;
+        PUV puv = inputData.PUV;
 
-            ConditionContext conditionContext = new ConditionContextImpl(parameters, pointCollection);
-            CMV cmv = evaluateCMV(conditionContext);
+        ConditionContext conditionContext = new ConditionContextImpl(parameters, pointCollection);
+        CMV cmv = evaluateCMV(conditionContext);
 
-            PUMManager pumManager = new PUMManagerImpl(cmv, lcm);
-            pumManager.computePUM();
-            PUM pum = pumManager.getPUM();
+        PUMManager pumManager = new PUMManagerImpl(cmv, lcm);
+        pumManager.computePUM();
+        PUM pum = pumManager.getPUM();
 
-            FUVManager fuvManager = new FUVManagerImpl(pum, puv);
-            fuvManager.computeFUV();
-            FUV fuv = fuvManager.getFUV();
+        FUVManager fuvManager = new FUVManagerImpl(pum, puv);
+        fuvManager.computeFUV();
+        FUV fuv = fuvManager.getFUV();
 
-            if (launch(fuv)) {
-                System.out.println("True");
-            } else {
-                System.out.println("False");
-            }
-
-        } catch (JsonParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        OutputHandler outputHandler = new OutputHandlerImpl();
+        if (launch(fuv)) {
+            outputHandler.print("YES");
+        } else {
+            outputHandler.print("NO");
         }
 
-        // PUV puv;
-        // PUMManager pumManager = new PUMManagerImpl(cmv, lcm);
-        // PUM pum;
-        // FUVManager fuvManager = new FUVManagerImpl(pum, puv);
-        // fuvManager.computeFUV();
-        // FUV fuv = fuvManager.getFUV();
-        // if (launch(null)) {
-        // System.out.println("True");
-        // } else {
-        // System.out.println("False");
-        // }
+        outputHandler.print(cmv)
+                .print(pum)
+                .print(fuv);
+
 
     }
 
@@ -143,13 +125,3 @@ public class App {
 
 }
 
-class InputData {
-    public int NUMPOINTS;
-    public PointCollection POINTS;
-    public Parameters PARAMETERS;
-    public LCM LCM;
-    public PUV PUV;
-
-    InputData() {
-    };
-}
