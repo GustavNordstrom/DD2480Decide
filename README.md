@@ -44,6 +44,7 @@ This project implements **DECIDE()**, a function that determines whether an inte
 
 ### **🔹 Contribution Statements**
 - **Biming Wen**: 
+Implement modules: FUV, PUM, inputoutput
 - **Xu Zuo**:
 - **Gustav Nordstrom**:
 - **Gustav Wallin** :
