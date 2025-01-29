@@ -12,6 +12,14 @@ public class FUVManagerImpl implements FUVManager {
     private PUM pum;
     private PUV puv;
     public FUVManagerImpl(PUM pum, PUV puv) {
+        if (pum == null || puv == null) {
+            throw new IllegalArgumentException("pum or puv is null");
+        }
+
+        if (pum.getMatrix().size() != pum.getMatrix().get(0).size() ||
+            pum.getMatrix().size() != puv.getVector().size()) {
+            throw new IllegalArgumentException("wrong size pum or puv");
+        }
         fuv = new FUV();
         this.pum = pum;
         this.puv = puv;
