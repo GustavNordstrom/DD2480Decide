@@ -38,7 +38,7 @@ This project implements **DECIDE()**, a function that determines whether an inte
 ### **🔹 Team Members**
 - Biming Wen @WenBiming
 - Xu Zuo @floralsea
-- Gustav Nordstrom @GustavNordstrom
+- Gustav Nordström @GustavNordstrom
 - Gustav Wallin @Muppsz
 - David Persson @Eb3nezzer
 
@@ -46,7 +46,8 @@ This project implements **DECIDE()**, a function that determines whether an inte
 - **Biming Wen**: 
 Implement modules: FUV, PUM, inputoutput
 - **Xu Zuo**:
-- **Gustav Nordstrom**:
+- **Gustav Nordström**:
+Implemented parts of CMV module including LIC and corresponding unit tests and CalculationUtils to reduce code duplication.
 - **Gustav Wallin** :
 - **David Persson**:
 
