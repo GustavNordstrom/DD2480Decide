@@ -36,4 +36,16 @@ public class CMV {
         }
 
     }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < cmv.size(); ++i) {
+            res.append(cmv.get(i).toString())
+                    .append(' ');
+        }
+
+        res.append('\n');
+        return res.toString();
+    }
 }

@@ -37,7 +37,9 @@ import com.dd2480.common.PUV;
 import com.dd2480.common.PointCollection;
 import com.dd2480.inputoutput.InputData;
 import com.dd2480.inputoutput.InputHandler;
+import com.dd2480.inputoutput.OutputHandler;
 import com.dd2480.inputoutput.impl.InputHandlerImpl;
+import com.dd2480.inputoutput.impl.OutputHandlerImpl;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -78,13 +80,16 @@ public class App {
         fuvManager.computeFUV();
         FUV fuv = fuvManager.getFUV();
 
+        OutputHandler outputHandler = new OutputHandlerImpl();
         if (launch(fuv)) {
-            System.out.println("YES");
+            outputHandler.print("YES");
         } else {
-            System.out.println("NO");
+            outputHandler.print("NO");
         }
 
-
+        outputHandler.print(cmv)
+                .print(pum)
+                .print(fuv);
 
 
     }

@@ -43,4 +43,20 @@ public class PUM {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (ArrayList<Boolean> unlockingMatrix : preliminaryUnlockingMatrix) {
+            for (int j = 0; j < preliminaryUnlockingMatrix.get(0).size(); ++j) {
+                sb.append(unlockingMatrix.get(j).toString())
+                        .append(' ');
+            }
+            sb.append('\n');
+        }
+
+        sb.append('\n');
+        return sb.toString();
+    }
+
 }

@@ -25,4 +25,15 @@ public class FUV {
     public void setVal(int idx, Boolean val) {
         fuv.set(idx, val);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Boolean e: fuv) {
+            sb.append(e.toString()).append(' ');
+        }
+
+        sb.append('\n');
+        return sb.toString();
+    }
 }
