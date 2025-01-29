@@ -4,6 +4,7 @@ import com.dd2480.CMV.ConditionContext;
 import com.dd2480.CMV.Condition;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
+import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
 /*
@@ -47,7 +48,7 @@ public class ConditionNine implements Condition {
             }
 
             // Calculate the angle formed at the vertex
-            double angle = calculateAngle(p1, p2, p3);
+            double angle = CalculationUtils.calculateAngle(p1, p2, p3);
 
             // Check if the angle meets the condition
             if (angle < Math.PI - epsilon || angle > Math.PI + epsilon) {
@@ -56,33 +57,5 @@ public class ConditionNine implements Condition {
         }
 
         return false;
-    }
-
-    // Calculates the angle formed by three points (p1, p2, p3) where p2 is the
-    // vertex.
-    private double calculateAngle(Point p1, Point p2, Point p3) {
-        // Vectors from the vertex to the other two points
-        double v1x = p1.getX() - p2.getX();
-        double v1y = p1.getY() - p2.getY();
-        double v2x = p3.getX() - p2.getX();
-        double v2y = p3.getY() - p2.getY();
-
-        // Calculate the dot product and magnitudes of the vectors
-        double dotProduct = (v1x * v2x) + (v1y * v2y);
-        double magnitudeV1 = Math.sqrt(v1x * v1x + v1y * v1y);
-        double magnitudeV2 = Math.sqrt(v2x * v2x + v2y * v2y);
-
-        // If either vector has zero length, the angle is undefined
-        if (magnitudeV1 == 0 || magnitudeV2 == 0) {
-            return Double.NaN;
-        }
-
-        // Calculate the cosine of the angle
-        double cosAngle = dotProduct / (magnitudeV1 * magnitudeV2);
-
-        // Ensure the cosine value is within the valid range [-1, 1]
-        cosAngle = Math.max(-1.0, Math.min(1.0, cosAngle));
-
-        return Math.acos(cosAngle);
     }
 }
