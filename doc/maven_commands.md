@@ -18,5 +18,15 @@ mvn -Dtest=ClassName test
 
 # run the program
 ```shell
-mvn exec:java
+mvn exec:java 
 ```
+
+### For linux/macOS:
+```shell
+For mvn exec:java -Dexec.args="src/test/resources/test_input1.json"
+```
+
+### For windows:
+```shell
+ mvn exec:java -D"exec.args"="src\test\resources\test_input1.json"
+ ```
