@@ -47,7 +47,7 @@ This project implements **DECIDE()**, a function that determines whether an inte
 - **Xu Zuo**: Implemented the majority of LICs and corresponding unit tests, set up initial tests and implemented tests for decide(), add new features to /common to handle input data, fix parts of FUV and PUM modules for test.
 - **Gustav Nordström**:
 Implemented parts of CMV module including LIC and corresponding unit tests and CalculationUtils to reduce code duplication.
-- **Gustav Wallin** :
+- **Gustav Wallin** : Also implemented parts of CMV module with LIC and unit test along with revising unit tests for already finished LIC's. Added to calculationUtils along with refactoring that followed that. Worked on input handling of main function and decide function.
 - **David Persson**:
 
 ### **🔹 How to Contribute**
