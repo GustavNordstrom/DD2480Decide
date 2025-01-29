@@ -4,6 +4,7 @@ import com.dd2480.CMV.ConditionContext;
 import com.dd2480.CMV.Condition;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
+import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
 /*
@@ -34,7 +35,7 @@ public class ConditionTen implements Condition {
             Point p3 = pointCollection.getPoint(i + ePts + fPts + 2); // Third point
 
             // Calculate the area of the triangle formed by the three points
-            double area = calculateTriangleArea(p1, p2, p3);
+            double area = CalculationUtils.calculateTriangleArea(p1, p2, p3);
 
             // Check if the area exceeds AREA1
             if (area > area1) {
@@ -43,14 +44,5 @@ public class ConditionTen implements Condition {
         }
 
         return false;
-    }
-
-    // Calculates the area of a triangle given its three vertices.
-    private double calculateTriangleArea(Point p1, Point p2, Point p3) {
-        // Formula: area = 1/2 * |x_1*(y_2-y_3) + x_2*(y_3-y_1) + x_3*(y_1-y2)|
-        return 0.5 * Math.abs(
-                p1.getX() * (p2.getY() - p3.getY()) +
-                        p2.getX() * (p3.getY() - p1.getY()) +
-                        p3.getX() * (p1.getY() - p2.getY()));
     }
 }

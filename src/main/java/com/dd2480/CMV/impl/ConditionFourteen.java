@@ -4,6 +4,7 @@ import com.dd2480.CMV.ConditionContext;
 import com.dd2480.CMV.Condition;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
+import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
 /*
@@ -41,7 +42,7 @@ public class ConditionFourteen implements Condition {
             Point p2 = pointCollection.getPoint(i + ePts + 1); 
             Point p3 = pointCollection.getPoint(i + ePts + fPts + 2); 
 
-            double area = calculateTriangleArea(p1, p2, p3);
+            double area = CalculationUtils.calculateTriangleArea(p1, p2, p3);
 
             // Check for both conditions
             if (area > area1) {
@@ -58,12 +59,5 @@ public class ConditionFourteen implements Condition {
         }
 
         return false;
-    }
-
-    private double calculateTriangleArea(Point p1, Point p2, Point p3) {
-        return 0.5 * Math.abs(
-                p1.getX() * (p2.getY() - p3.getY()) +
-                p2.getX() * (p3.getY() - p1.getY()) +
-                p3.getX() * (p1.getY() - p2.getY()));
     }
 }
