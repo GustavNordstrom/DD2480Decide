@@ -52,4 +52,14 @@ class FUVManagerImplTest {
         Assertions.assertEquals(targetVec, computedFUV.getVector());
 
     }
+
+    @Test
+    public void testNullarguments() {
+        assertThrows(IllegalArgumentException.class, () -> new FUVManagerImpl(null, puv));
+    }
+
+    @Test
+    public void testNullarguments2() {
+        assertThrows(IllegalArgumentException.class, () -> new FUVManagerImpl(pum, null));
+    }
 }
