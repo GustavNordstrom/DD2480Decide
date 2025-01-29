@@ -100,4 +100,54 @@ public class ConditionThirteenTest {
         boolean result = conditionThirteen.evaluate(conditionContext);
         assertTrue(result);
     }
+
+    @Test
+    public void testEvaluate_insufficientPoints(){
+        Parameters params = mock(Parameters.class);
+        PointCollection pointCollection = new PointCollection();
+
+        // Acceptable conditions if there weren't less than 5 points
+        pointCollection.addPoint(new Point(0.0, 0.0));
+        pointCollection.addPoint(new Point(1.0, 0.0)); 
+        pointCollection.addPoint(new Point(2.0, 0.0));
+        pointCollection.addPoint(new Point(4.0, 0.0));
+
+        when(conditionContext.getParameters()).thenReturn(params);
+        when(conditionContext.getPointCollection()).thenReturn(pointCollection);
+
+        // Set APTS = 0, BPTS = 0, RADIUS1 = 1.0, RADIUS2 = 1.0
+        when(params.getAPTS()).thenReturn(0);
+        when(params.getBPTS()).thenReturn(0);
+        when(params.getRADIUS1()).thenReturn(1.0);
+        when(params.getRADIUS2()).thenReturn(1.0);
+
+        // Meet the condition
+        boolean result = conditionThirteen.evaluate(conditionContext);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testEvaluate_invalidRADIUS2(){
+        Parameters params = mock(Parameters.class);
+        PointCollection pointCollection = new PointCollection();
+
+        pointCollection.addPoint(new Point(0.0, 0.0));
+        pointCollection.addPoint(new Point(0.0, 0.0)); 
+        pointCollection.addPoint(new Point(0.0, 0.0));
+        pointCollection.addPoint(new Point(2.0, 0.0));
+        pointCollection.addPoint(new Point(0.0, 0.0));  
+        pointCollection.addPoint(new Point(4.0, 0.0));
+        when(conditionContext.getParameters()).thenReturn(params);
+        when(conditionContext.getPointCollection()).thenReturn(pointCollection);
+
+         // Set APTS = 1, BPTS = 1, RADIUS1 = 1.0, RADIUS2 = 0.0
+        when(params.getAPTS()).thenReturn(1);
+        when(params.getBPTS()).thenReturn(1);
+        when(params.getRADIUS1()).thenReturn(1.0);
+        when(params.getRADIUS2()).thenReturn(0.0);
+
+        // Meet the condition
+        boolean result = conditionThirteen.evaluate(conditionContext);
+        assertFalse(result);
+    }
 }

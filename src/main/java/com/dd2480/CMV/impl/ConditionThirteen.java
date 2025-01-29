@@ -30,7 +30,7 @@ public class ConditionThirteen implements Condition{
         boolean cond2 = false;
 
         // Invalid if NUMPOINTS < 5
-        if (pointCollection.size() < 5) {
+        if (pointCollection.size() < 5 || radius2 <= 0) {
             return false;
         }
 
