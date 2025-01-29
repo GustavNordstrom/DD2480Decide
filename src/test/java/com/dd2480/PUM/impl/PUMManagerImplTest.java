@@ -70,4 +70,20 @@ class PUMManagerImplTest {
         Assertions.assertTrue((matrix.get(0).get(4)), "PUM[0,4] is true because LCM[0,4] is NOTUSED.");
 
     }
+
+    @Test
+    public void testNullArguments1() {
+        // Use assertThrows to check if IllegalArgumentException is thrown
+        assertThrows(IllegalArgumentException.class, () -> {
+            pumManager = new PUMManagerImpl(cmv, null);  // Constructor should throw the exception
+        });
+    }
+
+    @Test
+    public void testNullArguments2() {
+        // Use assertThrows to check if IllegalArgumentException is thrown
+        assertThrows(IllegalArgumentException.class, () -> {
+            pumManager = new PUMManagerImpl(null, lcm);  // Constructor should throw the exception
+        });
+    }
 }
