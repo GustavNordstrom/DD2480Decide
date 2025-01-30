@@ -34,6 +34,30 @@ This project implements **DECIDE()**, a function that determines whether an inte
 - Supports **JSON-based input** for radar tracking data.
 - Includes **unit tests** to ensure correctness.
 
+## **🏃 How to run the program**
+
+### Requirements
+Project tested on: 
+- Java JDK 18
+- Apache Maven 3.9.9
+
+### How to run
+
+1. Compile with ```mvn compile```
+2. Run the program 
+   - Linux/MacOS ```mvn exec:java -Dexec.args="path/to/input.json"```
+   
+   Example:
+   ```mvn exec:java -Dexec.args="src/test/resources/test_input1.json"```
+   - Windows ```mvn exec:java -D"exec.args"="path\to\input.json"```
+   
+   Example:
+    ```mvn exec:java -D"exec.args"="src\test\resources\test_input1.json"```
+
+### How to run tests
+
+- Use ```mvn test```
+
 ## **📌 Contributions**
 ### **🔹 Team Members**
 - Biming Wen @WenBiming
