@@ -6,19 +6,34 @@ import java.util.List;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+/**
+ * Data class of PUV
+ */
 @JsonDeserialize(using = PUVDeserializer.class)
 public class PUV {
     private final List<Boolean> puv;
 
+    /**
+     * Constructs a PUV object with a boolean List
+     * @param l a boolean list used to fill in the object
+     */
     public PUV(List<Boolean> l) {
         // puv = l;
         puv = new ArrayList<>(l);
     }
 
+    /**
+     * Constructs a PUV object with a builder
+     * @param builder a builder object crafting PUV objects
+     */
     public PUV(Builder builder) {
         this.puv = builder.puv;
     }
 
+    /**
+     * Gets internal boolean List
+     * @return a boolean List
+     */
     public List<Boolean> getVector() {
         return puv;
     }

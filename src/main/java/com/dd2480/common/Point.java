@@ -1,5 +1,9 @@
 package com.dd2480.common;
 
+/**
+ * data class of point
+ * represents locaiton of a point
+ */
 public class Point {
     private double x;
     private double y;

@@ -4,21 +4,34 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-/*
-Logical Connector Matrix
+
+/**
+ * Data class of LCM
  */
 @JsonDeserialize(using = LCMDeserializer.class) // Use a custom deserializer
 public class LCM {
     ArrayList<ArrayList<Connector>> matrix;
 
+    /**
+     * Constructs a LCM object with a matrix
+     * @param matrix
+     */
     public LCM(ArrayList<ArrayList<Connector>> matrix) {
         this.matrix = matrix;
     }
 
+    /**
+     * Constructs a LCM object with builder
+     * @param builder a builder object used to construct LCM objects
+     */
     public LCM(Builder builder) {
         this.matrix = builder.matrix;
     }
 
+    /**
+     * Get internal matrix
+     * @return a matrix with Connector type elements
+     */
     public ArrayList<ArrayList<Connector>> getMatrix() {
         return matrix;
     }

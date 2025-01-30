@@ -3,18 +3,39 @@ package com.dd2480.CMV;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the data class of CMV
+ */
 public class CMV {
     private List<Boolean> cmv;
+
+    /**
+     * Constructs a CMV object with a boolean list
+     * @param c a boolean list
+     */
     public CMV(List<Boolean> c) {
         this.cmv = c;
     }
+
+    /**
+     * Constructs a CMV object with builder
+     * @param builder builder object used to initialized CMV object
+     */
     private CMV(Builder builder) {
         this.cmv = builder.cmv;
     }
 
+    /**
+     * Get internal booelan vector
+     * @return a boolean List
+     */
     public List<Boolean> getVector() {
         return cmv;
     }
+
+    /**
+     * A static internal class used to create CMV objects
+     */
     public static class Builder{
         private final int size = 15;
         private List<Boolean> cmv;

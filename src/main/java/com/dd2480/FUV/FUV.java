@@ -3,6 +3,9 @@ package com.dd2480.FUV;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * data class of FUV
+ */
 public class FUV {
     private List<Boolean> fuv;
     private final int length = 15;
@@ -11,6 +14,10 @@ public class FUV {
         fuv = f;
     }
 
+    /**
+     * Default FUV constructor
+     * Construct a FUV object with an internal 15-length List
+     */
     public FUV() {
         ArrayList<Boolean> l = new ArrayList<>();
         for (int i = 0; i < length; ++i) {
@@ -18,6 +25,11 @@ public class FUV {
         }
         fuv = l;
     }
+
+    /**
+     * Gets internal boolean List
+     * @return a boolean List
+     */
     public List<Boolean> getVector() {
         return fuv;
     }

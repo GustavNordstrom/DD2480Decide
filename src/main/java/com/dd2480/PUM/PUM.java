@@ -2,6 +2,9 @@ package com.dd2480.PUM;
 
 import java.util.ArrayList;
 
+/**
+ * data class of PUM
+ */
 public class PUM {
     private final int rowNumber = 15;
     private final int colNumber = 15;
@@ -10,6 +13,9 @@ public class PUM {
         this.preliminaryUnlockingMatrix = pum;
     }
 
+    /**
+     * Constructs a 15 by 15 matrix
+     */
     public PUM() {
         // all false by default
         preliminaryUnlockingMatrix = new ArrayList<ArrayList<Boolean>>();
@@ -36,6 +42,10 @@ public class PUM {
     public void setVal(int i, int j, Boolean val) {
         preliminaryUnlockingMatrix.get(i).set(j, val);
     }
+
+    /**
+     * set all elements in matrix to true
+     */
     public void setAllTrue() {
         for (ArrayList<Boolean> unlockingMatrix : preliminaryUnlockingMatrix) {
             for (int j = 0; j < preliminaryUnlockingMatrix.get(0).size(); ++j) {

@@ -4,6 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+/**
+ * Data class of Parameters
+ * holds all required parameters
+ */
 @JsonDeserialize(builder = Parameters.Builder.class)
 public class Parameters {
 
@@ -27,6 +31,10 @@ public class Parameters {
     private final double RADIUS2;
     private final double AREA2;
 
+    /**
+     * Construct Parameters object with builder
+     * @param builder a builder object used to initialized Parameters object
+     */
     private Parameters(Builder builder) {
         this.LENGTH1 = builder.LENGTH1;
         this.RADIUS1 = builder.RADIUS1;

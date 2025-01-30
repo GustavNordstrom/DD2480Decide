@@ -8,6 +8,9 @@ import com.dd2480.common.LCM;
 
 import java.util.ArrayList;
 
+/**
+ * Implementation of PUMManager
+ */
 public class PUMManagerImpl implements PUMManager {
     private PUM pum;
     private CMV cmv;
@@ -17,6 +20,11 @@ public class PUMManagerImpl implements PUMManager {
         return this.pum;
     }
 
+    /**
+     * Constructs a PUMMangerImpl object with cmv and lcm object
+     * @param cmv
+     * @param lcm
+     */
     public PUMManagerImpl(CMV cmv, LCM lcm) {
         // Validate inputs
         if (cmv == null) {
@@ -37,6 +45,9 @@ public class PUMManagerImpl implements PUMManager {
     }
 
     @Override
+    /**
+     * Compute  value of each element in the matrix
+     */
     public void computePUM() {
         for (int i = 0; i < pum.getRowNumber(); ++i) {
             for (int j = 0; j < pum.getColNumber(); ++j) {

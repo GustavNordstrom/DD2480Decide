@@ -7,10 +7,19 @@ import com.dd2480.common.PUV;
 
 import java.util.List;
 
+/**
+ * Implementation of interface FUVManager
+ */
 public class FUVManagerImpl implements FUVManager {
     private FUV fuv;
     private PUM pum;
     private PUV puv;
+
+    /**
+     * Construct a FUVManagerImpl object with pum and puv objects
+     * @param pum a PUM object
+     * @param puv a PUV object
+     */
     public FUVManagerImpl(PUM pum, PUV puv) {
         if (pum == null || puv == null) {
             throw new IllegalArgumentException("pum or puv is null");
@@ -26,6 +35,9 @@ public class FUVManagerImpl implements FUVManager {
 
     }
     @Override
+    /**
+     * Calculate internal FUV object
+     */
     public void computeFUV() {
         for (int i = 0; i < fuv.getVector().size(); ++i) {
             if (!puv.getVector().get(i)) {

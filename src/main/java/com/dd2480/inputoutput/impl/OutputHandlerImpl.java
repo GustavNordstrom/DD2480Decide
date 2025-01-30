@@ -2,6 +2,9 @@ package com.dd2480.inputoutput.impl;
 
 import com.dd2480.inputoutput.OutputHandler;
 
+/**
+ * Output required objects
+ */
 public class OutputHandlerImpl implements OutputHandler {
     public OutputHandlerImpl(){}
 
