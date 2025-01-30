@@ -99,3 +99,7 @@ This project is licensed under the **MIT License**.
 ✔ Supports **unit testing** and **JSON-based input**.  
 
 🚀 **Now, Run the Code and Protect the System!** 🚀
+
+### Essence 
+
+Regarding essence, our team has filled some parts of the checklist but not all of them. Generally, we believe we have established  principles and a foundation for a way of working with key practices and tools and they have been integrated in our way of working, for example communications, git workflow, program modules etc of which many aspects have improved during the project. At the same time, we are probably not at the highest stages as a team either as, at least for some members, not all tools are used fluently. Also not everyone is equally contributing to inspection and adaptation of the work. 
