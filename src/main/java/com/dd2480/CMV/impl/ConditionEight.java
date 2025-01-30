@@ -40,7 +40,7 @@ public class ConditionEight implements Condition {
             System.out.println("Circumcircle Radius: " + circumRadius + ", RADIUS1: " + radius1);
 
             // Meet the condition if circumcircle radius > RADIUS1
-            if (circumRadius > radius1) {
+            if (CalculationUtils.doubleCompare(circumRadius, radius1) == CalculationUtils.CompType.GT) {
                 return true;
             }
         }

@@ -4,6 +4,7 @@ import com.dd2480.CMV.ConditionContext;
 import com.dd2480.CMV.Condition;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
+import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
 /*
@@ -35,7 +36,7 @@ public class ConditionSeven implements Condition {
             double distance = euclideanDistance(p1, p2);
 
             // Meet the condition if distance > length1
-            if (distance > length1) {
+            if (CalculationUtils.doubleCompare(distance, length1) == CalculationUtils.CompType.GT) {
                 return true;
             }
         }

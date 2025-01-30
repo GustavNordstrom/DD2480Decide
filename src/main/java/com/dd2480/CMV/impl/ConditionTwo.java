@@ -32,7 +32,8 @@ public class ConditionTwo implements Condition {
 
             // Invalid If either the first point or the last point (or both) coincides with
             // the vertex
-            if (p1.equals(p2) || p3.equals(p2)) {
+            if (CalculationUtils.doubleCompare(Point.distanceOf(p1, p2), 0) == CalculationUtils.CompType.EQ || 
+            CalculationUtils.doubleCompare(Point.distanceOf(p3, p2), 0) == CalculationUtils.CompType.EQ) {
                 continue;
             }
 
@@ -40,7 +41,8 @@ public class ConditionTwo implements Condition {
             double angle = CalculationUtils.calculateAngle(p1, p2, p3);
 
             // Check if the angle meets the conditions
-            if (angle < Math.PI - epsilon || angle > Math.PI + epsilon) {
+            
+            if (CalculationUtils.doubleCompare(angle, Math.PI - epsilon) == CalculationUtils.CompType.LT || CalculationUtils.doubleCompare(angle, Math.PI + epsilon) == CalculationUtils.CompType.GT) {
                 return true; // Meet the condition
             }
         }

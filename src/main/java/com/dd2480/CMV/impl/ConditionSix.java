@@ -4,6 +4,7 @@ import com.dd2480.CMV.ConditionContext;
 import com.dd2480.CMV.Condition;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
+import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
 /*
@@ -46,7 +47,7 @@ public class ConditionSix implements Condition {
                 }
 
                 // Meet the condition if the distance is greater than DIST
-                if (distance > dist) {
+                if (CalculationUtils.doubleCompare(distance, dist) == CalculationUtils.CompType.GT) {
                     return true;
                 }
             }
@@ -64,7 +65,7 @@ public class ConditionSix implements Condition {
         double numerator = Math.abs((y2 - y1) * x - (x2 - x1) * y + x2 * y1 - y2 * x1);
         double denominator = Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
 
-        return denominator == 0 ? 0 : numerator / denominator;
+        return CalculationUtils.doubleCompare(denominator, 0) == CalculationUtils.CompType.EQ ? 0 : numerator / denominator;
     }
 
     // Calculate the Euclidean distance between two points

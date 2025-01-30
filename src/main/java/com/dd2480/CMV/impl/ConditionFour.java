@@ -4,6 +4,8 @@ import com.dd2480.CMV.Condition;
 import com.dd2480.CMV.ConditionContext;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
+import com.dd2480.common.CalculationUtils;
+import com.dd2480.common.CalculationUtils.CompType;
 import com.dd2480.common.Parameters;
 
 import java.util.HashSet;
@@ -55,21 +57,29 @@ public class ConditionFour implements Condition {
         double x = point.getX();
         double y = point.getY();
 
-        if (x > 0 && y > 0) {
-            return 1; // 1st Quadrant
-        } else if (x < 0 && y > 0) {
+        if (CalculationUtils.doubleCompare(x, 0) == CompType.GT &&
+        CalculationUtils.doubleCompare(y, 0) == CompType.GT) {
+        return 1; // 1st Quadrant
+        } else if (CalculationUtils.doubleCompare(x, 0) == CompType.LT &&
+                CalculationUtils.doubleCompare(y, 0) == CompType.GT) {
             return 2; // 2nd Quadrant
-        } else if (x < 0 && y < 0) {
+        } else if (CalculationUtils.doubleCompare(x, 0) == CompType.LT &&
+                CalculationUtils.doubleCompare(y, 0) == CompType.LT) {
             return 3; // 3rd Quadrant
-        } else if (x > 0 && y < 0) {
+        } else if (CalculationUtils.doubleCompare(x, 0) == CompType.GT &&
+                CalculationUtils.doubleCompare(y, 0) == CompType.LT) {
             return 4; // 4th Quadrant
-        } else if (x == 0 && y > 0) {
+        } else if (CalculationUtils.doubleCompare(x, 0) == CompType.EQ &&
+                CalculationUtils.doubleCompare(y, 0) == CompType.GT) {
             return 1; // Borderline cases are classified as the 1st quadrant
-        } else if (x < 0 && y == 0) {
+        } else if (CalculationUtils.doubleCompare(x, 0) == CompType.LT &&
+                CalculationUtils.doubleCompare(y, 0) == CompType.EQ) {
             return 2; // Borderline cases are classified as the 2nd quadrant
-        } else if (x == 0 && y < 0) {
+        } else if (CalculationUtils.doubleCompare(x, 0) == CompType.EQ &&
+                CalculationUtils.doubleCompare(y, 0) == CompType.LT) {
             return 3; // Borderline cases are classified as the 3rd quadrant
-        } else if (x > 0 && y == 0) {
+        } else if (CalculationUtils.doubleCompare(x, 0) == CompType.GT &&
+                CalculationUtils.doubleCompare(y, 0) == CompType.EQ) {
             return 1; // Borderline cases are classified as the 1st quadrant
         } else {
             return 1; // (0, 0) is classified as the 1st quadrant
