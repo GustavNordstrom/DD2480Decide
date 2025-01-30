@@ -11,6 +11,12 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test the 6th condition by one valid test case and two invalid test cases, 
+ * one invalid test case is "Add points, all of which have a distance from the line 
+ *  less than or equal to DIST" and 
+ * the 2nd is "NUMPOINTS < 3".
+ */
 public class ConditionSixTest {
 
     private ConditionSix conditionSix;

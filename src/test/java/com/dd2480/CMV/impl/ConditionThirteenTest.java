@@ -12,6 +12,14 @@ import com.dd2480.common.Parameters;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
 
+/*
+ * Test the 13th condition by one valid test case and four invalid test cases, 
+ * one invalid test case is "Points 0, 2 and 4 are collinear and can be contained 
+ *  on a circle of radius 1" and 
+ * the 2nd is "Points 0, 2 and 4 cannot be contained within a circle of radius 2" and 
+ * the 3rd is "NUMPOINTS < 5" and 
+ * the last is "Invalid radius2".
+ */
 public class ConditionThirteenTest {
 
     private ConditionThirteen conditionThirteen;
@@ -24,20 +32,20 @@ public class ConditionThirteenTest {
     }
 
     @Test
-    public void testEvaluate_condition1NotMet(){
+    public void testEvaluate_condition1NotMet() {
         Parameters params = mock(Parameters.class);
         PointCollection pointCollection = new PointCollection();
 
         // Points 0, 2 and 4 are collinear and can be contained on a circle of radius 1
         pointCollection.addPoint(new Point(0.0, 0.0));
-        pointCollection.addPoint(new Point(0.0, 0.0)); 
+        pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(1.0, 0.0));
         pointCollection.addPoint(new Point(0.0, 0.0));
-        pointCollection.addPoint(new Point(2.0, 0.0));  
+        pointCollection.addPoint(new Point(2.0, 0.0));
         when(conditionContext.getParameters()).thenReturn(params);
         when(conditionContext.getPointCollection()).thenReturn(pointCollection);
 
-         // Set APTS = 1, BPTS = 1, RADIUS1 = 1.0, RADIUS2 = 1.0
+        // Set APTS = 1, BPTS = 1, RADIUS1 = 1.0, RADIUS2 = 1.0
         when(params.getAPTS()).thenReturn(1);
         when(params.getBPTS()).thenReturn(1);
         when(params.getRADIUS1()).thenReturn(1.0);
@@ -55,14 +63,14 @@ public class ConditionThirteenTest {
 
         // Points 0, 2 and 4 cannot be contained within a circle of radius 2
         pointCollection.addPoint(new Point(0.0, 0.0));
-        pointCollection.addPoint(new Point(0.0, 0.0)); 
+        pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(3.0, 0.0));
         pointCollection.addPoint(new Point(0.0, 0.0));
-        pointCollection.addPoint(new Point(4.0, 2.5));  
+        pointCollection.addPoint(new Point(4.0, 2.5));
         when(conditionContext.getParameters()).thenReturn(params);
         when(conditionContext.getPointCollection()).thenReturn(pointCollection);
 
-         // Set APTS = 1, BPTS = 1, RADIUS1 = 2.0, RADIUS2 = 2.0
+        // Set APTS = 1, BPTS = 1, RADIUS1 = 2.0, RADIUS2 = 2.0
         when(params.getAPTS()).thenReturn(1);
         when(params.getBPTS()).thenReturn(1);
         when(params.getRADIUS1()).thenReturn(2.0);
@@ -74,23 +82,23 @@ public class ConditionThirteenTest {
     }
 
     @Test
-    public void testEvaluate_conditionsMet(){
+    public void testEvaluate_conditionsMet() {
         Parameters params = mock(Parameters.class);
         PointCollection pointCollection = new PointCollection();
 
         // Points 0, 2 and 5 cannot be contained within a circle of radius 2
         // Points 1, 3 and 6 can be contained within a circle of radius 1
         pointCollection.addPoint(new Point(0.0, 0.0));
-        pointCollection.addPoint(new Point(0.0, 0.0)); 
+        pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(3.0, -2.0));
         pointCollection.addPoint(new Point(1.0, 0.0));
-        pointCollection.addPoint(new Point(0.0, 0.0));  
+        pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(1.5, 2.5));
         pointCollection.addPoint(new Point(0.5, 0.9));
         when(conditionContext.getParameters()).thenReturn(params);
         when(conditionContext.getPointCollection()).thenReturn(pointCollection);
 
-         // Set APTS = 1, BPTS = 2, RADIUS1 = 2.0, RADIUS2 = 1.0
+        // Set APTS = 1, BPTS = 2, RADIUS1 = 2.0, RADIUS2 = 1.0
         when(params.getAPTS()).thenReturn(1);
         when(params.getBPTS()).thenReturn(2);
         when(params.getRADIUS1()).thenReturn(2.0);
@@ -102,13 +110,13 @@ public class ConditionThirteenTest {
     }
 
     @Test
-    public void testEvaluate_insufficientPoints(){
+    public void testEvaluate_insufficientPoints() {
         Parameters params = mock(Parameters.class);
         PointCollection pointCollection = new PointCollection();
 
         // Acceptable conditions if there weren't less than 5 points
         pointCollection.addPoint(new Point(0.0, 0.0));
-        pointCollection.addPoint(new Point(1.0, 0.0)); 
+        pointCollection.addPoint(new Point(1.0, 0.0));
         pointCollection.addPoint(new Point(2.0, 0.0));
         pointCollection.addPoint(new Point(4.0, 0.0));
 
@@ -127,26 +135,26 @@ public class ConditionThirteenTest {
     }
 
     @Test
-    public void testEvaluate_invalidRADIUS2(){
+    public void testEvaluate_invalidRADIUS2() {
         Parameters params = mock(Parameters.class);
         PointCollection pointCollection = new PointCollection();
 
         pointCollection.addPoint(new Point(0.0, 0.0));
-        pointCollection.addPoint(new Point(0.0, 0.0)); 
+        pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(2.0, 0.0));
-        pointCollection.addPoint(new Point(0.0, 0.0));  
+        pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(4.0, 0.0));
         when(conditionContext.getParameters()).thenReturn(params);
         when(conditionContext.getPointCollection()).thenReturn(pointCollection);
 
-         // Set APTS = 1, BPTS = 1, RADIUS1 = 1.0, RADIUS2 = 0.0
+        // Set APTS = 1, BPTS = 1, RADIUS1 = 1.0, RADIUS2 = 0.0
         when(params.getAPTS()).thenReturn(1);
         when(params.getBPTS()).thenReturn(1);
         when(params.getRADIUS1()).thenReturn(1.0);
         when(params.getRADIUS2()).thenReturn(0.0);
 
-        // Meet the condition
+        // Do NOT meet the condition
         boolean result = conditionThirteen.evaluate(conditionContext);
         assertFalse(result);
     }

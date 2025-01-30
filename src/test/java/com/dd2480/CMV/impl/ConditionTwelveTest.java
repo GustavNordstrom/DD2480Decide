@@ -11,6 +11,12 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test the 12th condition by one valid test case and two invalid test cases, 
+ * one invalid test case is "distance < LENGTH1 (condition A false) while 
+ *  distance < LENGTH2 (condition B true)" and 
+ * the 2nd is "NUMPOINTS < 3".
+ */
 public class ConditionTwelveTest {
 
     private ConditionTwelve conditionTwelve;

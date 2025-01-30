@@ -12,6 +12,11 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test the zero condition by one valid test case and two invalid test cases, 
+ * one invalid test case is "Distance between the two points <= LENGTH1" and 
+ * the 2nd is "NUMPOINTS < 2".
+ */
 public class ConditionZeroTest {
 
     private ConditionZero conditionZero;
@@ -41,7 +46,8 @@ public class ConditionZeroTest {
         // Now, evaluate the condition
         boolean result = conditionZero.evaluate(conditionContext);
 
-        // Assert that the condition is met (since the distance between the points is greater than LENGTH1)
+        // Assert that the condition is met (since the distance between the points is
+        // greater than LENGTH1)
         assertTrue(result);
     }
 
@@ -54,6 +60,27 @@ public class ConditionZeroTest {
         // Add points to the point collection
         pointCollection.addPoint(new Point(0.0, 0.0));
         pointCollection.addPoint(new Point(5.0, 0.0)); // Distance <= LENGTH1
+        when(conditionContext.getParameters()).thenReturn(params);
+        when(conditionContext.getPointCollection()).thenReturn(pointCollection);
+
+        // Set up LENGTH1 to be 10 (the condition will not be met)
+        when(params.getLENGTH1()).thenReturn(10.0);
+
+        // Now, evaluate the condition
+        boolean result = conditionZero.evaluate(conditionContext);
+
+        // Assert that the condition is not met (since the distance is <= LENGTH1)
+        assertFalse(result);
+    }
+
+    @Test
+    public void testEvaluate_insufficientPoints() {
+        // Set up the mock behavior for ConditionContext
+        Parameters params = mock(Parameters.class);
+        PointCollection pointCollection = new PointCollection();
+
+        // Add points to the point collection
+        pointCollection.addPoint(new Point(0.0, 0.0));
         when(conditionContext.getParameters()).thenReturn(params);
         when(conditionContext.getPointCollection()).thenReturn(pointCollection);
 
