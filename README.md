@@ -68,7 +68,12 @@ Project tested on:
 
 ### **🔹 Contribution Statements**
 - **Biming Wen**: Design modules and interfaces. Set up project structure and environment. Employ Continuous Integration scripts. Implement modules of FUV, PUM, inputoutput and their unit tests.
-- **Xu Zuo**: Implemented the majority of LICs and corresponding unit tests, set up initial tests and implemented tests for decide(), add new features to /common to handle input data, fix parts of FUV and PUM modules for test.
+- **Xu Zuo**:
+  - Implemented the 1st to the 12th LICs and corresponding unit tests, implemented the logic for _evaluate()_ in each condition.
+  - Added new features to /common (_LCMDeserializer_, _PointCollectionDeserializer_, _PUVDeserializer_) as helper to handle input data (parsing JSON format input).
+  - Set up initial test skeleton and implemented tests for _decide()_ in App.java, implemented and debugged the initial test for _decide()_ in AppTest.java.
+  - Fixed parts of FUV and PUM modules for test.
+  - Provide comments in the code modules I was responsible for.
 - **Gustav Nordström**:
 Implemented parts of CMV module including LIC and corresponding unit tests and CalculationUtils to reduce code duplication.
 - **Gustav Wallin** : Also implemented parts of CMV module with LIC and unit test along with revising unit tests for already finished LIC's. Added to calculationUtils along with refactoring that followed that. Worked on input handling of main function and decide function.
