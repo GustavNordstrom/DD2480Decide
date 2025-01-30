@@ -11,6 +11,12 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test the 9th condition by one valid test case and three invalid test cases, 
+ * one invalid test case is "Add points that form an angle within the range (PI - EPSILON, PI + EPSILON)" and 
+ * the 2nd is "NUMPOINTS < 5"
+ * the last is "Add points where the vertex coincides with the first point" for vertex coincides.
+ */
 public class ConditionNineTest {
 
     private ConditionNine conditionNine;

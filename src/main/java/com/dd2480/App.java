@@ -47,25 +47,38 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dd2480.common.Parameters;
 
 /**
- * Hello world!
- *
+ * Main application class for the interceptor launch decision system.
+ * This program processes radar tracking data from a JSON file and evaluates
+ * whether an interceptor should be launched based on predefined conditions.
  */
 public class App {
     /*
-     * Usage lin/mac: mvn exec:java -Dexec.args="src/test/resources/test_input1.json"
-     * usage windows: mvn exec:java -D"exec.args"="src\test\resources\test_input1.json"
+     * Usage lin/mac: mvn exec:java
+     * -Dexec.args="src/test/resources/test_input1.json"
+     * usage windows: mvn exec:java
+     * -D"exec.args"="src\test\resources\test_input1.json"
      * 
      */
     public static void main(String[] args) {
-        if (args.length < 1) {
-            System.err.println("Usage linux/mac: mvn exec:java -Dexec.args=\"path/to/input.json\", usage windows: mvn exec:java -D\"exec.args\"=\"path\\to\\input.json\""); 
-            return;
-        }
+        // if (args.length < 1) {
+        // // System.err.println("Usage linux/mac: mvn exec:java
+        // //
+        // -Dexec.args=\"/Users/zuoxu/Desktop/DD2480Decide/src/main/java/com/dd2480/input1.json",
+        // // usage windows: mvn exec:java -D\"exec.args\"=\"path\\to\\input.json\"");
+        // return;
+        // }
 
-        String jsonFilePath = args[0]; // Get JSON file from command-line arguments
-        decide(jsonFilePath);
+        // String jsonFilePath = args[0]; // Get JSON file from command-line arguments
+
+        // The file path is hard coded for test, please change it if necessary!
+        decide("src/main/java/com/dd2480/input1.json");
     }
 
+    /**
+     * Processes the decision-making workflow based on the input JSON file.
+     *
+     * @param jsonFilePath The path to the input JSON file.
+     */
     public static void decide(String jsonFilePath) {
         // Load JSON input from a file
         InputHandler inputHandler = new InputHandlerImpl(jsonFilePath);
@@ -75,31 +88,45 @@ public class App {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        // Extract input data
         InputData inputData = inputHandler.getInputData();
         Parameters parameters = inputData.PARAMETERS;
         PointCollection pointCollection = inputData.POINTS;
         LCM lcm = inputData.LCM;
         PUV puv = inputData.PUV;
 
+        // Evaluate conditions and generate CMV
         ConditionContext conditionContext = new ConditionContextImpl(parameters, pointCollection);
         CMV cmv = evaluateCMV(conditionContext);
 
+        // Compute the Preliminary Unlocking Matrix (PUM)
         PUMManager pumManager = new PUMManagerImpl(cmv, lcm);
         pumManager.computePUM();
         PUM pum = pumManager.getPUM();
 
+        // Compute the Final Unlocking Vector (FUV)
         FUVManager fuvManager = new FUVManagerImpl(pum, puv);
         fuvManager.computeFUV();
         FUV fuv = fuvManager.getFUV();
+
 
         OutputFormatter.printLaunchDecision(launch(fuv) ? "YES": "NO");
         OutputFormatter.printCMV(cmv);
         OutputFormatter.printPUM(pum);
         OutputFormatter.printFUV(fuv);
 
+
     }
 
+    /**
+     * Evaluates all launch conditions and generates the Condition Met Vector (CMV).
+     *
+     * @param conditionContext The context containing parameters and points.
+     * @return CMV containing the results of each condition evaluation.
+     */
     public static CMV evaluateCMV(ConditionContext conditionContext) {
+        // Initialize and register all conditions
         List<Condition> conditions = new ArrayList<>();
         conditions.add(new ConditionZero());
         conditions.add(new ConditionOne());
@@ -117,13 +144,21 @@ public class App {
         conditions.add(new ConditionThirteen());
         conditions.add(new ConditionFourteen());
 
+        // Evaluate all conditions
         ConditionManager conditionManager = new ConditionManagerImpl(conditions);
-
         conditionManager.evaluateAll(conditionContext);
 
         return ((ConditionManagerImpl) conditionManager).getCMV();
     }
 
+    /**
+     * Determines whether to launch the interceptor based on the Final Unlocking
+     * Vector (FUV).
+     * The interceptor is launched only if all elements in FUV are true.
+     *
+     * @param fuv The Final Unlocking Vector.
+     * @return true if launch conditions are met, false otherwise.
+     */
     public static boolean launch(FUV fuv) {
         // OutputHandler outputHandler = new OutputHandlerImpl();
         // outputHandler.print(fuv);

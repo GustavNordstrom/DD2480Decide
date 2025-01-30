@@ -11,6 +11,11 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test the 4th condition by one valid test case and two invalid test cases, 
+ * one invalid test case is "Add points, distributed in the same quadrant" and 
+ * the other is "Add points less than Q_PTS".
+ */
 public class ConditionFourTest {
 
     private ConditionFour conditionFour;

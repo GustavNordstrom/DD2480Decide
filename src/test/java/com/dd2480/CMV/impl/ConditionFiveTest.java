@@ -10,6 +10,12 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test the 5th condition by one valid test case and three invalid test cases, 
+ * one invalid test case is "Add points, do NOT meet the condition X[j] - X[i] < 0" and 
+ * the 2nd is "NUMPOINTS < 2"
+ * the last is "equal X coordinates"
+ */
 public class ConditionFiveTest {
 
     private ConditionFive conditionFive;
@@ -67,8 +73,8 @@ public class ConditionFiveTest {
         PointCollection pointCollection = new PointCollection();
 
         // Add points, x_i = x_j
-        pointCollection.addPoint(new Point(1.0, 1.0)); 
-        pointCollection.addPoint(new Point(1.0, 2.0)); 
+        pointCollection.addPoint(new Point(1.0, 1.0));
+        pointCollection.addPoint(new Point(1.0, 2.0));
         when(conditionContext.getPointCollection()).thenReturn(pointCollection);
 
         // Do NOT meet the condition

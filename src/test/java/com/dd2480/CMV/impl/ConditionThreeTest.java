@@ -11,6 +11,11 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test the 3rd condition by one valid test case and two invalid test cases, 
+ * one invalid test case is "Add points, the triangle area is 1" and 
+ * the 2nd is "NUMPOINTS < 3".
+ */
 public class ConditionThreeTest {
 
     private ConditionThree conditionThree;
