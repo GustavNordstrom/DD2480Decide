@@ -45,10 +45,10 @@ public class ConditionFourteen implements Condition {
             double area = CalculationUtils.calculateTriangleArea(p1, p2, p3);
 
             // Check for both conditions
-            if (area > area1) {
+            if (CalculationUtils.doubleCompare(area, area1) == CalculationUtils.CompType.GT) {
                 triangleGreaterThanAREA1Exists = true;
             }
-            if (area < area2) {
+            if (CalculationUtils.doubleCompare(area, area2) == CalculationUtils.CompType.LT) {
                 triangleSmallerThanAREA2Exists = true;
             }
 

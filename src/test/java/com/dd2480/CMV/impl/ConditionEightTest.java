@@ -80,21 +80,23 @@ public class ConditionEightTest {
         Parameters params = mock(Parameters.class);
         PointCollection pointCollection = new PointCollection();
 
-        // Add points to form a triple that can be included in RADIUS1
-        pointCollection.addPoint(new Point(0.0, 0.0)); // Start
-        pointCollection.addPoint(new Point(1.0, 1.0)); // A_PTS Intervening point
-        pointCollection.addPoint(new Point(1.5, 1.5)); // B_PTS Intervening point
-        pointCollection.addPoint(new Point(5.0, 5.0)); // Additional point
+
+        // Add less than 3 points
+        pointCollection.addPoint(new Point(0.0, 0.0));
+        pointCollection.addPoint(new Point(1.0, 1.0));
+        pointCollection.addPoint(new Point(1.5, 1.5));
         when(conditionContext.getParameters()).thenReturn(params);
         when(conditionContext.getPointCollection()).thenReturn(pointCollection);
 
-        // Set APTS = 1, BPTS = 1, RADIUS1 = 5.0
         when(params.getAPTS()).thenReturn(1);
         when(params.getBPTS()).thenReturn(1);
         when(params.getRADIUS1()).thenReturn(5.0);
 
-        // Do NOT meet the condition
+        // Evaluate the condition
         boolean result = conditionEight.evaluate(conditionContext);
+
+        // Do NOT meet the condition
         assertFalse(result);
     }
+
 }

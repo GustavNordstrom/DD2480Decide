@@ -34,6 +34,30 @@ This project implements **DECIDE()**, a function that determines whether an inte
 - Supports **JSON-based input** for radar tracking data.
 - Includes **unit tests** to ensure correctness.
 
+## **🏃 How to run the program**
+
+### Requirements
+Project tested on: 
+- Java JDK 18
+- Apache Maven 3.9.9
+
+### How to run
+
+1. Compile with ```mvn compile```
+2. Run the program 
+   - Linux/MacOS ```mvn exec:java -Dexec.args="path/to/input.json"```
+   
+   Example:
+   ```mvn exec:java -Dexec.args="src/test/resources/test_input1.json"```
+   - Windows ```mvn exec:java -D"exec.args"="path\to\input.json"```
+   
+   Example:
+    ```mvn exec:java -D"exec.args"="src\test\resources\test_input1.json"```
+
+### How to run tests
+
+- Use ```mvn test```
+
 ## **📌 Contributions**
 ### **🔹 Team Members**
 - Biming Wen @WenBiming
@@ -43,12 +67,16 @@ This project implements **DECIDE()**, a function that determines whether an inte
 - David Persson @Eb3nezzer
 
 ### **🔹 Contribution Statements**
-- **Biming Wen**: 
-Implement modules: FUV, PUM, inputoutput
-- **Xu Zuo**: Implemented the majority of LICs and corresponding unit tests, set up initial tests and implemented tests for decide(), add new features to /common to handle input data, fix parts of FUV and PUM modules for test.
+- **Biming Wen**: Design modules and interfaces. Set up project structure and environment. Employ Continuous Integration scripts. Implement modules of FUV, PUM, inputoutput and their unit tests.
+- **Xu Zuo**:
+  - Implemented the 1st to the 12th LICs and corresponding unit tests, implemented the logic for _evaluate()_ in each condition.
+  - Added new features to /common (_LCMDeserializer_, _PointCollectionDeserializer_, _PUVDeserializer_) as helper to handle input data (parsing JSON format input).
+  - Set up initial test skeleton and implemented tests for _decide()_ in App.java, implemented and debugged the initial test for _decide()_ in AppTest.java.
+  - Fixed parts of FUV and PUM modules for test.
+  - Provide comments in the code modules I was responsible for.
 - **Gustav Nordström**:
 Implemented parts of CMV module including LIC and corresponding unit tests and CalculationUtils to reduce code duplication.
-- **Gustav Wallin** :
+- **Gustav Wallin** : Also implemented parts of CMV module with LIC and unit test along with revising unit tests for already finished LIC's. Added to calculationUtils along with refactoring that followed that. Worked on input handling of main function and decide function.
 - **David Persson**:
 
 ### **🔹 How to Contribute**
@@ -76,3 +104,7 @@ This project is licensed under the **MIT License**.
 ✔ Supports **unit testing** and **JSON-based input**.  
 
 🚀 **Now, Run the Code and Protect the System!** 🚀
+
+### Essence 
+
+Regarding essence, our team has filled some parts of the checklist but not all of them. Generally, we believe we have established  principles and a foundation for a way of working with key practices and tools and they have been integrated in our way of working, for example communications, git workflow, program modules etc of which many aspects have improved during the project. At the same time, we are probably not at the highest stages as a team either as, at least for some members, not all tools are used fluently. Also not everyone is equally contributing to inspection and adaptation of the work. 

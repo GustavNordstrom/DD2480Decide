@@ -44,12 +44,13 @@ public class ConditionThirteen implements Condition{
             double circumRadius = CalculationUtils.calculateCircumcircleRadius(p1, p2, p3);
 
             // Points cannot be contained within a circle of RADIUS1
-            if (circumRadius > radius1) {
+            if (CalculationUtils.doubleCompare(circumRadius, radius1) == CalculationUtils.CompType.GT) {
                 cond1 = true;
             }
 
             // Points can be contained within a circle of RADIUS2
-            if (circumRadius <= radius2) {
+            if ( CalculationUtils.doubleCompare(circumRadius, radius2) == CalculationUtils.CompType.EQ ||
+            CalculationUtils.doubleCompare(circumRadius, radius2) == CalculationUtils.CompType.LT) {
                 cond2 = true;
             }
 

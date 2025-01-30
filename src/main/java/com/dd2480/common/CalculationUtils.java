@@ -2,6 +2,18 @@ package com.dd2480.common;
 
 public class CalculationUtils {
 
+    // Double compare as specified in lab assignment
+    public enum CompType { LT, EQ, GT }
+    
+    public static CompType doubleCompare(double A, double B) {
+        final double EPSILON = 0.000001; 
+
+        if (Math.abs(A - B) < EPSILON) {
+            return CompType.EQ;  
+        }
+        return (A < B) ? CompType.LT : CompType.GT; // Return LT if A < B, otherwise GT
+    }
+
     // Calculate the circumcircle radius
     public static double calculateCircumcircleRadius(Point p1, Point p2, Point p3) {
         double a = Point.distanceOf(p1, p2);

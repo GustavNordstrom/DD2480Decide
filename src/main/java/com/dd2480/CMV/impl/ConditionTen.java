@@ -38,7 +38,7 @@ public class ConditionTen implements Condition {
             double area = CalculationUtils.calculateTriangleArea(p1, p2, p3);
 
             // Check if the area exceeds AREA1
-            if (area > area1) {
+            if (CalculationUtils.doubleCompare(area, area1) == CalculationUtils.CompType.GT) {
                 return true;
             }
         }

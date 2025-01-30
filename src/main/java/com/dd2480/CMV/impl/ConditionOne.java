@@ -29,7 +29,7 @@ public class ConditionOne implements Condition {
             double circumRadius = CalculationUtils.calculateCircumcircleRadius(p1, p2, p3);
 
             // Check if the radius of the circumscribed circle is greater than RADIUS1
-            if (circumRadius > radius1) {
+            if (CalculationUtils.doubleCompare(circumRadius, radius1) == CalculationUtils.CompType.GT) {
                 return true; // There are three points that do not meet the conditions
             }
         }

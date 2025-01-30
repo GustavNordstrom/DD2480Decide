@@ -2,6 +2,7 @@ package com.dd2480;
 
 import com.dd2480.inputoutput.InputData;
 import com.dd2480.inputoutput.InputHandler;
+import com.dd2480.inputoutput.OutputFormatter;
 import com.dd2480.inputoutput.impl.InputHandlerImpl;
 import com.dd2480.common.Parameters;
 import com.dd2480.common.PointCollection;
@@ -34,10 +35,10 @@ public class AppTest {
         InputData inputData = inputHandler.getInputData();
 
         // Act
-        PUMManagerImpl pumManager = new PUMManagerImpl(
-                App.evaluateCMV(new ConditionContextImpl(
-                        inputData.PARAMETERS, inputData.POINTS)),
-                inputData.LCM);
+        CMV cmv =   App.evaluateCMV(new ConditionContextImpl(
+                inputData.PARAMETERS, inputData.POINTS));
+
+        PUMManagerImpl pumManager = new PUMManagerImpl(cmv, inputData.LCM);
         pumManager.computePUM();
         PUM pum = pumManager.getPUM();
 
@@ -45,8 +46,8 @@ public class AppTest {
         fuvManager.computeFUV();
         FUV fuv = fuvManager.getFUV();
 
+
         // Print FUV
-        // System.out.println("FUV: " + fuv.getVector());
 
         // Act
         boolean launchDecision = App.launch(fuv);
@@ -56,6 +57,11 @@ public class AppTest {
 
         // Assert
         assertTrue(launchDecision, "Expected launch decision to be YES");
+
+        OutputFormatter.printLaunchDecision(launchDecision ? "YES": "NO");
+        OutputFormatter.printCMV(cmv);
+        OutputFormatter.printPUM(pum);
+        OutputFormatter.printFUV(fuv);
     }
 
     @Test
@@ -70,10 +76,10 @@ public class AppTest {
         InputData inputData = inputHandler.getInputData();
 
         // Act
-        PUMManagerImpl pumManager = new PUMManagerImpl(
-                App.evaluateCMV(new ConditionContextImpl(
-                        inputData.PARAMETERS, inputData.POINTS)),
-                inputData.LCM);
+        CMV cmv = App.evaluateCMV(new ConditionContextImpl(
+                inputData.PARAMETERS, inputData.POINTS));
+
+        PUMManagerImpl pumManager = new PUMManagerImpl(cmv, inputData.LCM);
         pumManager.computePUM();
         PUM pum = pumManager.getPUM();
 
@@ -92,6 +98,11 @@ public class AppTest {
 
         // Assert
         assertTrue(launchDecision, "Expected launch decision to be YES");
+
+        OutputFormatter.printLaunchDecision(launchDecision ? "YES": "NO");
+        OutputFormatter.printCMV(cmv);
+        OutputFormatter.printPUM(pum);
+        OutputFormatter.printFUV(fuv);
     }
 
     @Test
@@ -107,10 +118,10 @@ public class AppTest {
         InputData inputData = inputHandler.getInputData();
 
         // Act
-        PUMManagerImpl pumManager = new PUMManagerImpl(
-                App.evaluateCMV(new ConditionContextImpl(
-                        inputData.PARAMETERS, inputData.POINTS)),
-                inputData.LCM);
+        CMV cmv = App.evaluateCMV(new ConditionContextImpl(
+                inputData.PARAMETERS, inputData.POINTS));
+
+        PUMManagerImpl pumManager = new PUMManagerImpl(cmv, inputData.LCM);
         pumManager.computePUM();
         PUM pum = pumManager.getPUM();
 
@@ -129,6 +140,12 @@ public class AppTest {
 
         // Assert
         assertFalse(launchDecision, "Expected launch decision to be NO");
+
+        OutputFormatter.printLaunchDecision(launchDecision ? "YES": "NO");
+        OutputFormatter.printCMV(cmv);
+        OutputFormatter.printPUM(pum);
+        OutputFormatter.printFUV(fuv);
+
     }
 
     // @Test

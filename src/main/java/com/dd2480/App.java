@@ -37,6 +37,7 @@ import com.dd2480.common.PUV;
 import com.dd2480.common.PointCollection;
 import com.dd2480.inputoutput.InputData;
 import com.dd2480.inputoutput.InputHandler;
+import com.dd2480.inputoutput.OutputFormatter;
 import com.dd2480.inputoutput.OutputHandler;
 import com.dd2480.inputoutput.impl.InputHandlerImpl;
 import com.dd2480.inputoutput.impl.OutputHandlerImpl;
@@ -109,20 +110,12 @@ public class App {
         fuvManager.computeFUV();
         FUV fuv = fuvManager.getFUV();
 
-        // Generate output decision
-        OutputHandler outputHandler = new OutputHandlerImpl();
 
-        // Print final decision
-        if (launch(fuv)) {
-            outputHandler.print("YES");
-        } else {
-            outputHandler.print("NO");
-        }
+        OutputFormatter.printLaunchDecision(launch(fuv) ? "YES": "NO");
+        OutputFormatter.printCMV(cmv);
+        OutputFormatter.printPUM(pum);
+        OutputFormatter.printFUV(fuv);
 
-        // Print intermediate results (CMV, PUM, FUV)
-        outputHandler.print(cmv)
-                .print(pum)
-                .print(fuv);
 
     }
 
