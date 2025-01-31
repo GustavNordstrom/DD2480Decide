@@ -1,7 +1,16 @@
 # DD2480Decide
 
 ## **📌 Project Overview**
-This project implements **DECIDE()**, a function that determines whether an interceptor should be launched based on radar tracking data. The decision process involves evaluating **15 Launch Interceptor Conditions (LICs)**, combining them using logical operators, and generating a **Final Unlocking Vector (FUV)**, which ultimately decides whether to launch.
+This project implements **DECIDE()**, a function that determines whether an interceptor should be launched based on radar tracking data. The decision process involves evaluating **15 Launch Interceptor Conditions (LICs)**, combining them using logical operators, and generating a **Final Unlocking Vector (FUV)**, which ultimately decides whether to launch. Includes **unit tests** to ensure correctness.
+
+### **🔍 Program Structure**
+- **Entry Point**: The program starts in `App.java`, containing the `decide` function, which takes an input file and outputs the launch decision with the help of the following modules.
+- **Modules**:
+   - **common**: Contains utility classes and common data structures used across the project.
+  - **CMV**: Evaluates the 15 LIC's and generates a Conditions Met Vector (CMV).
+   - **PUM**: Creates the Preliminary Unlocking Matrix (PUM) using the Logical Connector Matrix (LCM) and CMV.
+  - **FUV**: Generates the Final Unlocking Vector (FUV) using the Preliminary Unlocking Vector (PUV) and PUM.
+  - **inputoutput**: Handles input and output operations, including processing input file (JSON) into data structures and formatting output data.
 
 ## **📂 Project Structure**
 ```
@@ -27,12 +36,6 @@ This project implements **DECIDE()**, a function that determines whether an inte
 │   ├── pom.xml
 │   ├── README.md
 ```
-
-## **🔹 Features**
-- Evaluates **15 Launch Interceptor Conditions (LICs)** to determine interceptor launch.
-- Uses **CMV (Condition Met Vector)**, **PUM (Preliminary Unlocking Matrix)**, and **FUV (Final Unlocking Vector)** for decision-making.
-- Supports **JSON-based input** for radar tracking data.
-- Includes **unit tests** to ensure correctness.
 
 ## **🏃 How to run the program**
 
