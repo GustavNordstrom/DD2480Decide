@@ -26,7 +26,7 @@ public class InputHandlerImplTest {
         // Get the file from the resources folder
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileNameNormalfile);
         // If you need to get the full path (e.g., for processing or passing as argument)
-        Path filePath = Paths.get(Main.class.getClassLoader().getResource(fileNameNormalfile).getPath());
+        Path filePath = Paths.get(System.getProperty("user.dir"), "src", "test", "resources", fileNameNormalfile);
 
         // Ensure the file is found in the resources folder
         assertNotNull(inputStream, "The normal input.json file should exist in the resources folder.");
@@ -41,7 +41,7 @@ public class InputHandlerImplTest {
         // Get the file from the resources folder
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
         // If you need to get the full path (e.g., for processing or passing as argument)
-        Path filePath = Paths.get(Main.class.getClassLoader().getResource(fileName).getPath());
+        Path filePath =  Paths.get(System.getProperty("user.dir"), "src", "test", "resources", fileName);
 
 
         // Setup
@@ -60,7 +60,7 @@ public class InputHandlerImplTest {
     public void testGetInputDataWithoutProcessing() {
         String fileName = "test_input1.json";
         // Get the file from the resources folder
-        Path filePath = Paths.get(Main.class.getClassLoader().getResource(fileName).getPath());
+        Path filePath = Paths.get(System.getProperty("user.dir"), "src", "test", "resources", fileName);
 
 
         // Setup
@@ -76,7 +76,7 @@ public class InputHandlerImplTest {
 
         String fileName = "invalid_input.json";
         // Try to process input and check if the exception is handled
-        Path filePath = Paths.get(Main.class.getClassLoader().getResource(fileName).getPath());
+        Path filePath = Paths.get(System.getProperty("user.dir"), "src", "test", "resources", fileName);
 
         inputHandler = new InputHandlerImpl(filePath.toString());
         assertThrows(Exception.class, () -> inputHandler.processInput());
