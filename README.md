@@ -86,7 +86,13 @@ Project tested on:
    Implemented parts of CMV module including:
    - The 13th LIC and corresponding unit tests.
    - Refactored CMV module to remove duplicate code used for calculations by setting up common utility calculationUtils class.
-- **Gustav Wallin** : Also implemented parts of CMV module with LIC and unit test along with revising unit tests for already finished LIC's. Added to calculationUtils along with refactoring that followed that. Worked on input handling of main function and decide function.
+- **Gustav Wallin** : 
+   - Implemented CMV module with LIC 14 and its unit test along with revising unit tests for already finished LIC's (8 & 10). 
+   - Added DoubleCompare function to calculationUtils along with refactoring to use function in codebase. 
+   - Worked on input handling of main function and decide function to accept commandline input.
+   - Provided comments in Javadoc format to some of CMV module files.
+   - Fix error from unit test of inputmanagerImpl when using windows machine
+   
 - **David Persson**:
 
 ### **🔹 How to Contribute**
