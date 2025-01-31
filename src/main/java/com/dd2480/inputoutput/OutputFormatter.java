@@ -4,6 +4,10 @@ import com.dd2480.CMV.CMV;
 import com.dd2480.FUV.FUV;
 import com.dd2480.PUM.PUM;
 
+/**
+ * Format the object
+ * Output objects in a pretty way
+ */
 public class OutputFormatter {
 
     // Print Final Launch Decision

@@ -5,6 +5,9 @@ import com.dd2480.common.PUV;
 import com.dd2480.common.Parameters;
 import com.dd2480.common.PointCollection;
 
+/**
+ * data class of InputData
+ */
 public class InputData {
     public int NUMPOINTS;
     public PointCollection POINTS;

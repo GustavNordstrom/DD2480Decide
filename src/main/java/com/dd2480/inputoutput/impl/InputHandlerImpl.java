@@ -9,11 +9,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Implementation of InputHandler interface
+ * Process the input data from a external json file
+ */
 public class InputHandlerImpl implements InputHandler {
     private boolean isProcessed = false;  // Track if processInput has been called
     private InputData inputData;
     private String path;
     private ObjectMapper mapper;
+
+    /**
+     * Contructs an InputHandlerImpl object with the path of the source
+     * @param p path of data source
+     */
     public InputHandlerImpl(String p) {
         this.path = p;
         this.mapper = new ObjectMapper();
@@ -24,6 +33,9 @@ public class InputHandlerImpl implements InputHandler {
     }
 
     @Override
+    /**
+     * Gets processed InputData
+     */
     public InputData getInputData() {
         if (!isProcessed) {
             throw new IllegalStateException("Input data must be processed before getting the data.");
@@ -32,6 +44,9 @@ public class InputHandlerImpl implements InputHandler {
     }
 
     @Override
+    /**
+     * Read the content from json file
+     */
     public void processInput() throws Exception{
         try {
             this.inputData = mapper.readValue(
