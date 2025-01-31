@@ -83,7 +83,9 @@ Project tested on:
   - Fixed parts of FUV and PUM modules for test.
   - Provide comments in the code modules I was responsible for.
 - **Gustav Nordström**:
-Implemented parts of CMV module including LIC and corresponding unit tests and CalculationUtils to reduce code duplication.
+   Implemented parts of CMV module including:
+   - The 13th LIC and corresponding unit tests.
+   - Refactored CMV module to remove duplicate code used for calculations by setting up common utility calculationUtils class.
 - **Gustav Wallin** : Also implemented parts of CMV module with LIC and unit test along with revising unit tests for already finished LIC's. Added to calculationUtils along with refactoring that followed that. Worked on input handling of main function and decide function.
 - **David Persson**:
 
