@@ -7,7 +7,8 @@ import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
-/*
+/**
+ * LIC 6: 
  * There exists at least one set of N_PTS consecutive data points such that at least one of the
  * points lies a distance greater than DIST from the line joining the first and last of these N PTS
  * points. If the first and last points of these N PTS are identical, then the calculated distance

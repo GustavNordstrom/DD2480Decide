@@ -11,7 +11,7 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
  * Test the 1st condition by one valid test case and two invalid test cases, 
  * one invalid test case is "Add points that all fit within a circle of radius RADIUS1" and 
  * the 2nd is "NUMPOINTS < 3".

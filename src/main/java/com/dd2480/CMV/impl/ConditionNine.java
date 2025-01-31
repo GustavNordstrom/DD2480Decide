@@ -7,7 +7,8 @@ import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
-/*
+/**
+ * LIC 9:
  * There exists at least one set of three data points separated by exactly C_PTS and D_PTS
  * consecutive intervening points, respectively, that form an angle such that:
  * angle < (PI−EPSILON)

@@ -6,7 +6,8 @@ import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
 import com.dd2480.common.Parameters;
 
-/*
+/**
+ * LIC 11:
  * There exists at least one set of two data points, (X[i],Y[i]) and (X[j],Y[j]), separated by
  * exactly G_PTS consecutive intervening points, such that X[j] - X[i] < 0. (where i < j ) 
  * The condition is not met when NUMPOINTS < 3.

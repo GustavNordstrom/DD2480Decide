@@ -11,11 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Implementation of the ConditionManager interface.
+ * Manages and evaluates a list of conditions (LICs).
+ */
 public class ConditionManagerImpl implements ConditionManager {
     private final int conditionNumber = 15;
     private final List<Condition> conditions;
     public List<Boolean> conditionMetVector;
 
+    /**
+     * Constructs a ConditionManagerImpl that stores a list of the conditions and
+     * creates a conditions met vector (CMV) which can be computed using the 
+     * evaluateAll method of the ConditionManagerImpl.
+     *
+     * @param conditions the list of conditions to be managed
+     */
     public ConditionManagerImpl(List<Condition> conditions) {
         this.conditions = conditions;
         int numberConditions = conditions.size();
@@ -34,6 +45,12 @@ public class ConditionManagerImpl implements ConditionManager {
         return conditionMetVector;
     }
 
+    /**
+     * Evaluates all conditions by calling their respective evaluate function,
+     * based on the provided context. 
+     *
+     * @param conditionContext the context in which the conditions are evaluated
+     */
     public void evaluateAll(ConditionContext conditionContext) {
         for (int i = 0; i < conditions.size(); ++i) {
             if (conditions.get(i).evaluate(conditionContext)) {

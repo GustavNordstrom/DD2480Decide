@@ -10,7 +10,7 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
  * Test the 5th condition by one valid test case and three invalid test cases, 
  * one invalid test case is "Add points, do NOT meet the condition X[j] - X[i] < 0" and 
  * the 2nd is "NUMPOINTS < 2"

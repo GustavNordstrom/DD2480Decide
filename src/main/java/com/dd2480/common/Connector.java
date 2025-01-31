@@ -1,5 +1,8 @@
 package com.dd2480.common;
 
+/**
+ * Enum representing logical connectors used in the PUM module.
+ */
 public enum Connector {
     NOTUSED(777),
     ORR(778), // Automatically increments after NOTUSED if desired

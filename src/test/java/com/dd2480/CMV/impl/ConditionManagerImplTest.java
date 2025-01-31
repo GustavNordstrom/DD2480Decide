@@ -9,6 +9,9 @@ import java.lang.reflect.Constructor;
 import java.util.Set;
 
 public class ConditionManagerImplTest {
+    /**
+     * Tests the instantiation of condition classes using reflection.
+     */
     @Test
     public void testClassScanAndInstantiate() {
         // Use Reflections to scan for classes implementing Condition in the 'impl' package

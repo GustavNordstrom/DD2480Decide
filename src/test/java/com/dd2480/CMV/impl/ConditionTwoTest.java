@@ -11,7 +11,7 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
  * Test the 2nd condition by one valid test case and three invalid test cases, 
  * one invalid test case is "Do not meet either the angle < PI-EPSILON or angle > PI+EPSILON" and 
  * the 2nd is "NUMPOINTS < 3" and 

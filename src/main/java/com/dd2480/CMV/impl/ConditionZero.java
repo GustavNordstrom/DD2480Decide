@@ -8,9 +8,10 @@ import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
 
 
-/*
-There exists at least one set of two consecutive data points that are a distance greater than
-the length, LENGTH1, apart.
+/**
+ * Class for evaluating LIC 0, which reads:
+ * There exists at least one set of two consecutive data points that are a distance greater than
+ * the length, LENGTH1, apart.
  */
 public class ConditionZero implements Condition {
     @Override

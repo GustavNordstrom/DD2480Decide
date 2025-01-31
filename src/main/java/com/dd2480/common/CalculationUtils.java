@@ -1,10 +1,17 @@
 package com.dd2480.common;
 
+/**
+ * Utility class for various recurring calculations in the CMV module.
+ */
 public class CalculationUtils {
 
-    // Double compare as specified in lab assignment
-    public enum CompType { LT, EQ, GT }
-    
+    /**
+     * Compares two double values as specified is lab assignment.
+     *
+     * @param A the first double value
+     * @param B the second double value
+     * @return the comparison type (LT, EQ, GT)
+     */
     public static CompType doubleCompare(double A, double B) {
         final double EPSILON = 0.000001; 
 
@@ -13,8 +20,20 @@ public class CalculationUtils {
         }
         return (A < B) ? CompType.LT : CompType.GT; // Return LT if A < B, otherwise GT
     }
+    /**
+     * Enumeration for comparison types.
+     */
+    public enum CompType { LT, EQ, GT }
+    
 
-    // Calculate the circumcircle radius
+    /**
+     * Calculates the circumcircle radius for three points.
+     *
+     * @param p1 the first point
+     * @param p2 the second point
+     * @param p3 the third point
+     * @return the circumcircle radius
+     */
     public static double calculateCircumcircleRadius(Point p1, Point p2, Point p3) {
         double a = Point.distanceOf(p1, p2);
         double b = Point.distanceOf(p2, p3);
@@ -34,7 +53,14 @@ public class CalculationUtils {
         return (a * b * c) / (4.0 * area);
     }
 
-    // Determine whether the points are collinear or not
+    /**
+     * Determines whether the points are collinear.
+     *
+     * @param p1 the first point
+     * @param p2 the second point
+     * @param p3 the third point
+     * @return true if the points are collinear, false otherwise
+     */
     private static boolean areCollinear(Point p1, Point p2, Point p3) {
         // By area, collinear if the area is zero
         return Math.abs(
@@ -43,6 +69,14 @@ public class CalculationUtils {
                         p3.getX() * (p1.getY() - p2.getY())) / 2.0) < 1e-6; // threshold
     }
 
+    /**
+     * Calculates the area of a triangle formed by three points.
+     *
+     * @param p1 the first point
+     * @param p2 the second point
+     * @param p3 the third point
+     * @return the area of the triangle
+     */
     public static double calculateTriangleArea(Point p1, Point p2, Point p3) {
         return 0.5 * Math.abs(
                 p1.getX() * (p2.getY() - p3.getY()) +
@@ -50,8 +84,14 @@ public class CalculationUtils {
                 p3.getX() * (p1.getY() - p2.getY()));
     }
 
-    // Calculates the angle formed by three points (p1, p2, p3) where p2 is the
-    // vertex.
+    /**
+     * Calculates the angle formed by three points where the second point is the vertex.
+     *
+     * @param p1 the first point
+     * @param p2 the vertex point
+     * @param p3 the third point
+     * @return the angle in radians
+     */
     public static double calculateAngle(Point p1, Point p2, Point p3) {
         // Vectors from the vertex to the other two points
         double v1x = p1.getX() - p2.getX();

@@ -7,7 +7,8 @@ import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
-/*
+/**
+ * LIC 7:
  * There exists at least one set of two data points separated by exactly K_PTS 
  * consecutive intervening points that are a distance greater than the length, 
  * LENGTH1, apart. The condition is not met when NUMPOINTS < 3.

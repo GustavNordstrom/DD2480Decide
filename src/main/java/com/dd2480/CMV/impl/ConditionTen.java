@@ -7,7 +7,8 @@ import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
-/*
+/**
+ * LIC 10:
  * There exists at least one set of three data points separated by exactly E_PTS and F_PTS 
  * consecutive intervening points, respectively, that are the vertices of a triangle with 
  * area greater than AREA1. The condition is not met when NUMPOINTS < 5. 
