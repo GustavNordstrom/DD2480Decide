@@ -7,7 +7,8 @@ import com.dd2480.common.PointCollection;
 import com.dd2480.common.Parameters;
 import com.dd2480.common.CalculationUtils;
 
-/*
+/**
+ * LIC 8:
  * There exists at least one set of three data points separated by exactly A_PTS and B_PTS
  * consecutive intervening points, respectively, that cannot be contained within or on a circle of
  * radius RADIUS1. The condition is not met when NUMPOINTS < 5.

@@ -11,7 +11,8 @@ import com.dd2480.common.Parameters;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
+/**
+ * LIC 4:
  * There exists at least one set of Q_PTS consecutive data points that lie in more than QUADS
  * quadrants. Where there is ambiguity as to which quadrant contains a given point, priority
  * of decision will be by quadrant number, i.e., I, II, III, IV. For example, the data point (0,0)

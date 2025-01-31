@@ -7,7 +7,8 @@ import com.dd2480.common.Parameters;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
 
-/*
+/**
+ * LIC 2:
  * There exists at least one set of three consecutive data points which form an angle such that:
  * angle < (PI−EPSILON)
  * or

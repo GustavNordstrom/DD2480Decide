@@ -11,7 +11,7 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
  * Test the 14th condition by one valid test case and four invalid test cases, 
  * one invalid test case is "Form triangles not meeting AREA1 but meeting AREA2" and 
  * the 2nd is "Add points that form triangles meeting AREA1 but not AREA2"

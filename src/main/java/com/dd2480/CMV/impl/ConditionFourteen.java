@@ -7,9 +7,8 @@ import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
-/*
- * Class that handles the fourteenth CMV condition
- * 
+/**
+ * LIC 14:
  * There exists at least one set of three data points, separated by exactly E PTS and F PTS consecutive 
  * intervening points, respectively, that are the vertices of a triangle with area greater than AREA1. 
  * In addition, there exist three data points (which can be the same or different from the three data points 

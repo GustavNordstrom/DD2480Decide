@@ -17,7 +17,8 @@ import com.dd2480.common.Parameters;
  * 0 <= LENGTH2
  */
 public class ConditionTwelve implements Condition {
-    /*
+    /**
+     * LIC 12:
      * Condition A: There exists at least one pair of points separated by exactly
      * KPTS
      * such that the distance between the points is greater than LENGTH1.

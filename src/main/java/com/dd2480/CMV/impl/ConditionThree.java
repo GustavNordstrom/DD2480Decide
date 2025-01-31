@@ -7,7 +7,8 @@ import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 import com.dd2480.common.Parameters;
 
-/*
+/**
+ * LIC 3:
  * There exists at least one set of three consecutive data points that are the vertices of a triangle
  * with area greater than AREA1.
  */

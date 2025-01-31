@@ -7,11 +7,11 @@ import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 
-/*
+/**
+ * LIC 1:
  * There exists at least one set of three consecutive data points 
  * that cannot all be contained within or on a circle of radius RADIUS1.
  */
-
 public class ConditionOne implements Condition {
     @Override
     public boolean evaluate(ConditionContext conditionContext) {

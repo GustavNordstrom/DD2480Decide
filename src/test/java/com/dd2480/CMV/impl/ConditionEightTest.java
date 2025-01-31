@@ -11,7 +11,7 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
  * Test the 8th condition by one valid test case and two invalid test cases, 
  * one invalid test case is "Add points to form a triple that can be included in RADIUS1" and 
  * the other is "NUMPOINTS < 5"

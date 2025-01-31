@@ -7,15 +7,17 @@ import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
 import com.dd2480.common.CalculationUtils;
 
-// There exists at least one set of three data points, separated by exactly A PTS and B PTS
-// consecutive intervening points, respectively, that cannot be contained within or on a circle of
-// radius RADIUS1. In addition, there exists at least one set of three data points (which can be
-// the same or different from the three data points just mentioned) separated by exactly A PTS
-// and B PTS consecutive intervening points, respectively, that can be contained in or on a
-// circle of radius RADIUS2. Both parts must be true for the LIC to be true. The condition is
-// not met when NUMPOINTS < 5.
-// 0 ≤ RADIUS2
-
+/**
+ * LIC 13:
+ * There exists at least one set of three data points, separated by exactly A PTS and B PTS
+ * consecutive intervening points, respectively, that cannot be contained within or on a circle of
+ * radius RADIUS1. In addition, there exists at least one set of three data points (which can be
+ * the same or different from the three data points just mentioned) separated by exactly A PTS
+ * and B PTS consecutive intervening points, respectively, that can be contained in or on a
+ * circle of radius RADIUS2. Both parts must be true for the LIC to be true. The condition is
+ * not met when NUMPOINTS < 5.
+ * 0 ≤ RADIUS2
+ */
 public class ConditionThirteen implements Condition{
 
     @Override

@@ -12,7 +12,7 @@ import com.dd2480.common.Parameters;
 import com.dd2480.common.Point;
 import com.dd2480.common.PointCollection;
 
-/*
+/**
  * Test the 13th condition by one valid test case and four invalid test cases, 
  * one invalid test case is "Points 0, 2 and 4 are collinear and can be contained 
  *  on a circle of radius 1" and 

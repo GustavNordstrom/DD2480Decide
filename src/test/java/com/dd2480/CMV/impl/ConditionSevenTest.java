@@ -11,7 +11,7 @@ import com.dd2480.common.PointCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
  * Test the 7th condition by one valid test case and three invalid test cases, 
  * one invalid test case is "The distance between two points less than LENGHTH1" and 
  * the 2nd is "NUMPOINTS < 3" and
