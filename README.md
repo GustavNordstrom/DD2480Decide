@@ -67,7 +67,15 @@ Project tested on:
 - David Persson @Eb3nezzer
 
 ### **🔹 Contribution Statements**
-- **Biming Wen**: Design modules and interfaces. Set up project structure and environment. Employ Continuous Integration scripts. Implement modules of FUV, PUM, inputoutput and their unit tests.
+- **Biming Wen**: 
+  - Design modules and interfaces, including packages CMV, common FUV, inputoutput, PUM.
+  - Set up project structure and environment. Employ Continuous Integration scripts .github/workflows/maven.yml. 
+  - Implement specific modules of 
+    - CMV: Interfaces Condition, ConditionContext, CondtionManager. Classes CMV, ConditionContextImpl, ConditionManagerImpl  
+    - FUV: Interfaces FUVManager. Classes FUV, FUVManagerImpl.
+    - PUM: Interfaces PUMManager, classes PUM, PUMManagerImpl
+    - inputoutput: Interfaces InputHandler, OutputHandler. Classes InputHandlerImpl, OutputHandlerImpl, OutputFormatter
+  - unit tests of modules above
 - **Xu Zuo**:
   - Implemented the 1st to the 12th LICs and corresponding unit tests, implemented the logic for _evaluate()_ in each condition.
   - Added new features to /common (_LCMDeserializer_, _PointCollectionDeserializer_, _PUVDeserializer_) as helper to handle input data (parsing JSON format input).
