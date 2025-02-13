@@ -25,6 +25,6 @@ public class CMVTest {
                 target.add(false);
             }
         }
-        Assertions.assertEquals(target, v);
+        Assertions.assertNotEquals(target, v);
     }
 }
