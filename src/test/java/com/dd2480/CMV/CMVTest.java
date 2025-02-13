@@ -25,7 +25,6 @@ public class CMVTest {
                 target.add(false);
             }
         }
-        // bela
-        Assertions.assertNotEquals(target, v);
+        Assertions.assertEquals(target, v);
     }
 }
