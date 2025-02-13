@@ -25,7 +25,7 @@ public class CMVTest {
                 target.add(false);
             }
         }
-        // beljn
+        // bel
         Assertions.assertNotEquals(target, v);
     }
 }
